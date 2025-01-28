@@ -1,0 +1,5 @@
+C:\Users\salih\Desktop\Opg\SqlConnect\SqlConnect\obj\Debug\net8.0\SqlConnect.csproj.AssemblyReference.cache
+C:\Users\salih\Desktop\Opg\SqlConnect\SqlConnect\obj\Debug\net8.0\SqlConnect.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\salih\Desktop\Opg\SqlConnect\SqlConnect\obj\Debug\net8.0\SqlConnect.AssemblyInfoInputs.cache
+C:\Users\salih\Desktop\Opg\SqlConnect\SqlConnect\obj\Debug\net8.0\SqlConnect.AssemblyInfo.cs
+C:\Users\salih\Desktop\Opg\SqlConnect\SqlConnect\obj\Debug\net8.0\SqlConnect.csproj.CoreCompileInputs.cache
