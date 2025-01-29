@@ -34,7 +34,7 @@ public class SæsonKategori {
         SæsonKategoriId = value;
     }
 
-    // TODO: Hvordan kommer ugerne fra databasen=
+    // TODO: Hvordan kommer ugerne fra databasen?
     // Business logic methods
     public List<int> HentUgeNumre()
     {
