@@ -1,17 +1,10 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-[Table("Ejer")]
-public class Ejer
-{
+[Table("Kunde")]
+public class Kunde {
     [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int EjerId { get; set; }
-    
-    [Column(TypeName = "nchar")]
-    public string Navn { get; set; }
+    public int KundeId { get; set; }
     
     [Column(TypeName = "nchar")]
     public string Email { get; set; }
@@ -23,5 +16,5 @@ public class Ejer
     public string Adresse { get; set; }
     
     // Navigation property
-    public virtual ICollection<Sommerhus> Sommerhuse { get; set; }
-}
+    public virtual ICollection<Reservation> Reservationer { get; set; }
+} 

@@ -1,12 +1,23 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+[Table("Konsulent")]
 public class Konsulent {
-    private int KonsulentId;
-    public string Navn { get; set; }
-    public string Email { get; set; }
-    public string Telefon { get; set; }
-    public string Type { get; set; }  // Udlejningskonsulent eller Kundekonsulent
-    public List<Område> AnsvarligForOmråder { get; set; } = new List<Område>();
+    [Key]
+    public int KonsulentId { get; set; }
     
-    public Konsulent() {
-        AnsvarligForOmråder = new List<Område>();
-    }
+    [Column(TypeName = "nchar")]
+    public string Navn { get; set; }
+    
+    [Column(TypeName = "nchar")]
+    public string Email { get; set; }
+    
+    [Column(TypeName = "nchar(12)")]
+    public string Telefon { get; set; }
+    
+    [Column(TypeName = "nchar")]
+    public string Adresse { get; set; }
+    
+    // Navigation property
+    public virtual ICollection<Område> AnsvarligForOmråder { get; set; }
 } 
