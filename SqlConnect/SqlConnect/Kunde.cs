@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using SqlConnect.SqlConnect;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,84 +7,85 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SqlConnect {
-    namespace SqlConnect {
-        public class Reservation {
-            private int ReservationId;
-            public int SommerhusId { get; set; }
-            public int KundeId { get; set; }
-            public DateTime StartDato { get; set; }
-            public DateTime SlutDato { get; set; }
+    class Kunde {
 
-            /// <summary>
-            /// Gets the ReservationId.
-            /// </summary>
-            /// <returns>The ReservationId.</returns>
-            public int GetReservationId() {
-                return ReservationId;
-            }
+        private int KundeId;
+        public string Adresse { get; set; }
+        public string Email { get; set; }
+        public string Telefon { get; set; }
 
-            /// <summary>
-            /// Sets the ReservationId.
-            /// </summary>
-            /// <param name="value">The ReservationId value.</param>
-            public void SetReservationId(int value) {
-                ReservationId = value;
-            }
+        public Kunde() {
         }
-    
 
-    public static class DatabaseHelper {
+        /// <summary>
+        /// Get the KundeId.
+        /// </summary>
+        /// <returns>The KundeId.</returns>
+        public int GetKundeId() {
+            return KundeId;
+        }
 
-            // -------------------- CREATE --------------------
+        /// <summary>
+        /// Set the KundeId.
+        /// </summary>
+        /// <param name="value">The KundeId value.</param>
+        public void SetKundeId(int value) {
+            KundeId = value;
+        }
+
+        /// <summary>
+        /// Helper class for database operations related to Kunde.
+        /// </summary>
+        public static class DatabaseHelper {
+
             /// <summary>
-            /// Creates a new Reservation.
+            /// Create a new Kunde.
             /// </summary>
-            /// <param name="r">The Reservation object to create.</param>
-            public static void CreateReservation(Reservation r) {
+            /// <param name="k">The Kunde object to create.</param>
+            public static void CreateKunde(Kunde k) {
                 using (SqlConnection con = new SqlConnection(program.connectionString)) {
                     con.Open();
                     string query = @"
-                INSERT INTO Reservation (SommerhusId, KundeId, StartDato, SlutDato)
-                VALUES (@SommerhusId, @KundeId, @StartDato, @SlutDato);
-                SELECT SCOPE_IDENTITY();
-            ";
+                    INSERT INTO Kunde (Kunde (KundeID, Adresse, Email, Tlfnr))
+                    VALUES (@KundeID, @Adresse, @Email, @Tlfnr);
+                    SELECT SCOPE_IDENTITY();
+                ";
 
                     using (SqlCommand cmd = new SqlCommand(query, con)) {
-                        cmd.Parameters.AddWithValue("@SommerhusId", r.SommerhusId);
-                        cmd.Parameters.AddWithValue("@KundeId", r.KundeId);
-                        cmd.Parameters.AddWithValue("@StartDato", r.StartDato);
-                        cmd.Parameters.AddWithValue("@SlutDato", r.SlutDato);
+                        cmd.Parameters.AddWithValue("@KundeID", k.KundeId);
+                        cmd.Parameters.AddWithValue("@Adresse", k.Adresse);
+                        cmd.Parameters.AddWithValue("@Email", k.Email);
+                        cmd.Parameters.AddWithValue("@Tlfnr", k.Telefon);
 
                         object newIdObj = cmd.ExecuteScalar();
                         int newId = Convert.ToInt32(newIdObj);
-                        r.SetReservationId(newId);
+                        k.SetKundeId(newId);
                     }
                 }
             }
-
             // -------------------- READ ALL --------------------
             /// <summary>
             /// Retrieves all Reservations.
             /// </summary>
             /// <returns>A list of Reservation objects.</returns>
-            public static List<Reservation> ReadAllReservationer() {
-                List<Reservation> liste = new List<Reservation>();
+            public static List<Kunde> ReadAllKunde() {
+                List<Kunde> liste = new List<Kunde>();
                 using (SqlConnection con = new SqlConnection(program.connectionString)) {
                     con.Open();
                     string query = @"
-                SELECT ReservationId, SommerhusId, KundeId, StartDato, SlutDato
-                FROM Reservation
+                SELECT KundeID, Adresse, Email, Tlfnr
+                FROM Kunde
             ";
 
                     using (SqlCommand cmd = new SqlCommand(query, con)) {
                         using (SqlDataReader reader = cmd.ExecuteReader()) {
                             while (reader.Read()) {
-                                Reservation r = new Reservation();
-                                r.SetReservationId(reader.GetInt32(0));
-                                r.SommerhusId = reader.GetInt32(1);
-                                r.KundeId = reader.GetInt32(2);
-                                r.StartDato = reader.GetDateTime(3);
-                                r.SlutDato = reader.GetDateTime(4);
+                                Kunde r = new Kunde();
+                                r.SetKundeId(reader.GetInt32(0));
+                                r.KundeId = reader.GetInt32(1);
+                                r.Email = reader.GetString(2);
+                                r.Telefon = reader.GetString(3);
+                                r.Adresse = reader.GetString(4);
 
                                 liste.Add(r);
                             }
@@ -99,27 +101,27 @@ namespace SqlConnect {
             /// </summary>
             /// <param name="reservationId">The ID of the Reservation to retrieve.</param>
             /// <returns>The Reservation object.</returns>
-            public static Reservation ReadReservationById(int reservationId) {
-                Reservation r = null;
+            public static Kunde ReadKundeById(int KundeId) {
+                Kunde r = null;
                 using (SqlConnection con = new SqlConnection(program.connectionString)) {
                     con.Open();
                     string query = @"
-                SELECT ReservationId, SommerhusId, KundeId, StartDato, SlutDato
-                FROM Reservation
-                WHERE ReservationId = @ID
+                SELECT KundeId, SommerhusId, KundeId, StartDato, SlutDato
+                FROM Kunde
+                WHERE KundeId = @ID
             ";
 
                     using (SqlCommand cmd = new SqlCommand(query, con)) {
-                        cmd.Parameters.AddWithValue("@ID", reservationId);
+                        cmd.Parameters.AddWithValue("@ID", KundeId);
 
                         using (SqlDataReader reader = cmd.ExecuteReader()) {
                             if (reader.Read()) {
-                                r = new Reservation();
-                                r.SetReservationId(reader.GetInt32(0));
-                                r.SommerhusId = reader.GetInt32(1);
-                                r.KundeId = reader.GetInt32(2);
-                                r.StartDato = reader.GetDateTime(3);
-                                r.SlutDato = reader.GetDateTime(4);
+                                r = new Kunde();
+                                r.SetKundeId(reader.GetInt32(0));
+                                r.KundeId = reader.GetInt32(1);
+                                r.Email = reader.GetString(2);
+                                r.Telefon = reader.GetString(3);
+                                r.Adresse = reader.GetString(4);
                             }
                         }
                     }
@@ -132,24 +134,22 @@ namespace SqlConnect {
             /// Updates a Reservation.
             /// </summary>
             /// <param name="r">The Reservation object to update.</param>
-            public static void UpdateReservation(Reservation r) {
+            public static void UpdateKunde(Kunde r) {
                 using (SqlConnection con = new SqlConnection(program.connectionString)) {
                     con.Open();
                     string query = @"
-                UPDATE Reservation
-                SET SommerhusId = @SommerhusId,
-                    KundeId = @KundeId,
-                    StartDato = @StartDato,
-                    SlutDato = @SlutDato
-                WHERE ReservationId = @ID
+                UPDATE Kunde
+                SET KundeId = @KundeId,
+                    Email = @Email,
+                    Tlfnr = @Tlfnr,
+                    Adresse = @Adresse
             ";
 
                     using (SqlCommand cmd = new SqlCommand(query, con)) {
-                        cmd.Parameters.AddWithValue("@SommerhusId", r.SommerhusId);
                         cmd.Parameters.AddWithValue("@KundeId", r.KundeId);
-                        cmd.Parameters.AddWithValue("@StartDato", r.StartDato);
-                        cmd.Parameters.AddWithValue("@SlutDato", r.SlutDato);
-                        cmd.Parameters.AddWithValue("@ID", r.GetReservationId());
+                        cmd.Parameters.AddWithValue("@Email", r.Email);
+                        cmd.Parameters.AddWithValue("@Tlfnr", r.Telefon);
+                        cmd.Parameters.AddWithValue("@Adresse", r.Adresse);
 
                         cmd.ExecuteNonQuery();
                     }
@@ -176,6 +176,5 @@ namespace SqlConnect {
                 }
             }
         }
-
     }
 }

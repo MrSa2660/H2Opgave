@@ -1,34 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\salih\\Desktop\\Opg\\SqlConnect\\",
+  "WorkspaceRootPath": "C:\\Users\\salih\\Desktop\\Programmering\\grnd-prog\\H2Opgave\\SqlConnect\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|c:\\users\\salih\\desktop\\opg\\sqlconnect\\sqlconnect\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|solutionrelative:sqlconnect\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|c:\\users\\salih\\desktop\\programmering\\grnd-prog\\h2opgave\\sqlconnect\\sqlconnect\\opsynsmand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|solutionrelative:sqlconnect\\opsynsmand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|c:\\users\\salih\\desktop\\opg\\sqlconnect\\sqlconnect\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|c:\\users\\salih\\desktop\\programmering\\grnd-prog\\h2opgave\\sqlconnect\\sqlconnect\\kunde.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|solutionrelative:sqlconnect\\kunde.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|c:\\users\\salih\\desktop\\programmering\\grnd-prog\\h2opgave\\sqlconnect\\sqlconnect\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|solutionrelative:sqlconnect\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|c:\\users\\salih\\desktop\\opg\\sqlconnect\\sqlconnect\\omr\u00E5de.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|solutionrelative:sqlconnect\\omr\u00E5de.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|c:\\users\\salih\\desktop\\opg\\sqlconnect\\sqlconnect\\konsulent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|c:\\users\\salih\\desktop\\programmering\\grnd-prog\\h2opgave\\sqlconnect\\sqlconnect\\konsulent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|solutionrelative:sqlconnect\\konsulent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|c:\\users\\salih\\desktop\\opg\\sqlconnect\\sqlconnect\\s\u00E6sonkategori.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|c:\\users\\salih\\desktop\\programmering\\grnd-prog\\h2opgave\\sqlconnect\\sqlconnect\\omr\u00E5de.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|solutionrelative:sqlconnect\\omr\u00E5de.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|c:\\users\\salih\\desktop\\programmering\\grnd-prog\\h2opgave\\sqlconnect\\sqlconnect\\s\u00E6sonkategori.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|solutionrelative:sqlconnect\\s\u00E6sonkategori.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|c:\\users\\salih\\desktop\\opg\\sqlconnect\\sqlconnect\\sommerhus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|c:\\users\\salih\\desktop\\programmering\\grnd-prog\\h2opgave\\sqlconnect\\sqlconnect\\sommerhus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|solutionrelative:sqlconnect\\sommerhus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|c:\\users\\salih\\desktop\\opg\\sqlconnect\\sqlconnect\\ejer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|c:\\users\\salih\\desktop\\programmering\\grnd-prog\\h2opgave\\sqlconnect\\sqlconnect\\ejer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|solutionrelative:sqlconnect\\ejer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|c:\\users\\salih\\desktop\\programmering\\grnd-prog\\h2opgave\\sqlconnect\\sqlconnect\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76701E4B-0DC5-48DE-BB02-A19089E87064}|SqlConnect\\SqlConnect.csproj|solutionrelative:sqlconnect\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,30 +46,56 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Opsynsmand.cs",
+              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Programmering\\grnd-prog\\H2Opgave\\SqlConnect\\SqlConnect\\Opsynsmand.cs",
+              "RelativeDocumentMoniker": "SqlConnect\\Opsynsmand.cs",
+              "ToolTip": "C:\\Users\\salih\\Desktop\\Programmering\\grnd-prog\\H2Opgave\\SqlConnect\\SqlConnect\\Opsynsmand.cs",
+              "RelativeToolTip": "SqlConnect\\Opsynsmand.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T14:58:54.125Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Kunde.cs",
+              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Programmering\\grnd-prog\\H2Opgave\\SqlConnect\\SqlConnect\\Kunde.cs",
+              "RelativeDocumentMoniker": "SqlConnect\\Kunde.cs",
+              "ToolTip": "C:\\Users\\salih\\Desktop\\Programmering\\grnd-prog\\H2Opgave\\SqlConnect\\SqlConnect\\Kunde.cs",
+              "RelativeToolTip": "SqlConnect\\Kunde.cs",
+              "ViewState": "AQIAAIAAAAAAAAAAAAAYwIkAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T14:25:09.057Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Reservation.cs",
-              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Opg\\SqlConnect\\SqlConnect\\Reservation.cs",
+              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Programmering\\grnd-prog\\H2Opgave\\SqlConnect\\SqlConnect\\Reservation.cs",
               "RelativeDocumentMoniker": "SqlConnect\\Reservation.cs",
-              "ToolTip": "C:\\Users\\salih\\Desktop\\Opg\\SqlConnect\\SqlConnect\\Reservation.cs",
+              "ToolTip": "C:\\Users\\salih\\Desktop\\Programmering\\grnd-prog\\H2Opgave\\SqlConnect\\SqlConnect\\Reservation.cs",
               "RelativeToolTip": "SqlConnect\\Reservation.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAnAAAA",
+              "ViewState": "AQIAAHcAAAAAAAAAAAAiwJAAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-28T14:29:20.951Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Omr\u00E5de.cs",
-              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Opg\\SqlConnect\\SqlConnect\\Omr\u00E5de.cs",
+              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Programmering\\grnd-prog\\H2Opgave\\SqlConnect\\SqlConnect\\Omr\u00E5de.cs",
               "RelativeDocumentMoniker": "SqlConnect\\Omr\u00E5de.cs",
-              "ToolTip": "C:\\Users\\salih\\Desktop\\Opg\\SqlConnect\\SqlConnect\\Omr\u00E5de.cs",
+              "ToolTip": "C:\\Users\\salih\\Desktop\\Programmering\\grnd-prog\\H2Opgave\\SqlConnect\\SqlConnect\\Omr\u00E5de.cs",
               "RelativeToolTip": "SqlConnect\\Omr\u00E5de.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "ViewState": "AQIAADUAAAAAAAAAAAAAwAgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-28T14:28:55.964Z",
               "EditorCaption": ""
@@ -70,61 +104,61 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Konsulent.cs",
-              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Opg\\SqlConnect\\SqlConnect\\Konsulent.cs",
+              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Programmering\\grnd-prog\\H2Opgave\\SqlConnect\\SqlConnect\\Konsulent.cs",
               "RelativeDocumentMoniker": "SqlConnect\\Konsulent.cs",
-              "ToolTip": "C:\\Users\\salih\\Desktop\\Opg\\SqlConnect\\SqlConnect\\Konsulent.cs",
+              "ToolTip": "C:\\Users\\salih\\Desktop\\Programmering\\grnd-prog\\H2Opgave\\SqlConnect\\SqlConnect\\Konsulent.cs",
               "RelativeToolTip": "SqlConnect\\Konsulent.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-28T14:28:38.933Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "S\u00E6sonKategori.cs",
-              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Opg\\SqlConnect\\SqlConnect\\S\u00E6sonKategori.cs",
+              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Programmering\\grnd-prog\\H2Opgave\\SqlConnect\\SqlConnect\\S\u00E6sonKategori.cs",
               "RelativeDocumentMoniker": "SqlConnect\\S\u00E6sonKategori.cs",
-              "ToolTip": "C:\\Users\\salih\\Desktop\\Opg\\SqlConnect\\SqlConnect\\S\u00E6sonKategori.cs",
+              "ToolTip": "C:\\Users\\salih\\Desktop\\Programmering\\grnd-prog\\H2Opgave\\SqlConnect\\SqlConnect\\S\u00E6sonKategori.cs",
               "RelativeToolTip": "SqlConnect\\S\u00E6sonKategori.cs",
-              "ViewState": "AQIAABcAAAAAAAAAAAAIwAkAAAAEAAAA",
+              "ViewState": "AQIAABcAAAAAAAAAAAAIwCwAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-28T14:26:02.32Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Sommerhus.cs",
-              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Opg\\SqlConnect\\SqlConnect\\Sommerhus.cs",
+              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Programmering\\grnd-prog\\H2Opgave\\SqlConnect\\SqlConnect\\Sommerhus.cs",
               "RelativeDocumentMoniker": "SqlConnect\\Sommerhus.cs",
-              "ToolTip": "C:\\Users\\salih\\Desktop\\Opg\\SqlConnect\\SqlConnect\\Sommerhus.cs",
+              "ToolTip": "C:\\Users\\salih\\Desktop\\Programmering\\grnd-prog\\H2Opgave\\SqlConnect\\SqlConnect\\Sommerhus.cs",
               "RelativeToolTip": "SqlConnect\\Sommerhus.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAwwBIAAAArAAAA",
+              "ViewState": "AQIAABsAAAAAAAAAAAAUwHoAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-28T14:25:17.296Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Ejer.cs",
-              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Opg\\SqlConnect\\SqlConnect\\Ejer.cs",
+              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Programmering\\grnd-prog\\H2Opgave\\SqlConnect\\SqlConnect\\Ejer.cs",
               "RelativeDocumentMoniker": "SqlConnect\\Ejer.cs",
-              "ToolTip": "C:\\Users\\salih\\Desktop\\Opg\\SqlConnect\\SqlConnect\\Ejer.cs",
+              "ToolTip": "C:\\Users\\salih\\Desktop\\Programmering\\grnd-prog\\H2Opgave\\SqlConnect\\SqlConnect\\Ejer.cs",
               "RelativeToolTip": "SqlConnect\\Ejer.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAywDEAAAA+AAAA",
+              "ViewState": "AQIAACAAAAAAAAAAAADwvzEAAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-28T14:24:28.747Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 8,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Opg\\SqlConnect\\SqlConnect\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Programmering\\grnd-prog\\H2Opgave\\SqlConnect\\SqlConnect\\Program.cs",
               "RelativeDocumentMoniker": "SqlConnect\\Program.cs",
-              "ToolTip": "C:\\Users\\salih\\Desktop\\Opg\\SqlConnect\\SqlConnect\\Program.cs",
+              "ToolTip": "C:\\Users\\salih\\Desktop\\Programmering\\grnd-prog\\H2Opgave\\SqlConnect\\SqlConnect\\Program.cs",
               "RelativeToolTip": "SqlConnect\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

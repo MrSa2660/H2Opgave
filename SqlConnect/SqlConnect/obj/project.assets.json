@@ -1672,11 +1672,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\salih\\Desktop\\Opg\\SqlConnect\\SqlConnect\\SqlConnect.csproj",
+      "projectUniqueName": "C:\\Users\\salih\\Desktop\\Programmering\\grnd-prog\\H2Opgave\\SqlConnect\\SqlConnect\\SqlConnect.csproj",
       "projectName": "SqlConnect",
-      "projectPath": "C:\\Users\\salih\\Desktop\\Opg\\SqlConnect\\SqlConnect\\SqlConnect.csproj",
+      "projectPath": "C:\\Users\\salih\\Desktop\\Programmering\\grnd-prog\\H2Opgave\\SqlConnect\\SqlConnect\\SqlConnect.csproj",
       "packagesPath": "C:\\Users\\salih\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\salih\\Desktop\\Opg\\SqlConnect\\SqlConnect\\obj\\",
+      "outputPath": "C:\\Users\\salih\\Desktop\\Programmering\\grnd-prog\\H2Opgave\\SqlConnect\\SqlConnect\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
