@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace SqlConnect {
     namespace SqlConnect {
         public class Reservation {
-            private int ReservationId;
+             public int ReservationId { get; set; }
             public int SommerhusId { get; set; }
             public int KundeId { get; set; }
             public DateTime StartDato { get; set; }
@@ -18,17 +18,7 @@ namespace SqlConnect {
             /// Gets the ReservationId.
             /// </summary>
             /// <returns>The ReservationId.</returns>
-            public int GetReservationId() {
-                return ReservationId;
-            }
-
-            /// <summary>
-            /// Sets the ReservationId.
-            /// </summary>
-            /// <param name="value">The ReservationId value.</param>
-            public void SetReservationId(int value) {
-                ReservationId = value;
-            }
+        
         }
     
 
@@ -56,7 +46,7 @@ namespace SqlConnect {
 
                         object newIdObj = cmd.ExecuteScalar();
                         int newId = Convert.ToInt32(newIdObj);
-                        r.SetReservationId(newId);
+                        r.ReservationId = newId;
                     }
                 }
             }
@@ -79,7 +69,7 @@ namespace SqlConnect {
                         using (SqlDataReader reader = cmd.ExecuteReader()) {
                             while (reader.Read()) {
                                 Reservation r = new Reservation();
-                                r.SetReservationId(reader.GetInt32(0));
+                                r.ReservationId = reader.GetInt32(0);
                                 r.SommerhusId = reader.GetInt32(1);
                                 r.KundeId = reader.GetInt32(2);
                                 r.StartDato = reader.GetDateTime(3);
@@ -115,7 +105,7 @@ namespace SqlConnect {
                         using (SqlDataReader reader = cmd.ExecuteReader()) {
                             if (reader.Read()) {
                                 r = new Reservation();
-                                r.SetReservationId(reader.GetInt32(0));
+                                r.ReservationId = reader.GetInt32(0);
                                 r.SommerhusId = reader.GetInt32(1);
                                 r.KundeId = reader.GetInt32(2);
                                 r.StartDato = reader.GetDateTime(3);
@@ -149,7 +139,7 @@ namespace SqlConnect {
                         cmd.Parameters.AddWithValue("@KundeId", r.KundeId);
                         cmd.Parameters.AddWithValue("@StartDato", r.StartDato);
                         cmd.Parameters.AddWithValue("@SlutDato", r.SlutDato);
-                        cmd.Parameters.AddWithValue("@ID", r.GetReservationId());
+                        cmd.Parameters.AddWithValue("@ID", r.ReservationId);
 
                         cmd.ExecuteNonQuery();
                     }

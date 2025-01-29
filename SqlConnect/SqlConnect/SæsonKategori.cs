@@ -24,18 +24,7 @@ namespace SqlConnect {
         /// <summary>
         /// Gets the SæsonKategoriId.
         /// </summary>
-        /// <returns>The SæsonKategoriId.</returns>
-        public int GetSæsonKategoriId() {
-            return SæsonKategoriId;
-        }
-
-        /// <summary>
-        /// Sets the SæsonKategoriId.
-        /// </summary>
-        /// <param name="value">The value to set.</param>
-        public void SetSæsonKategoriId(int value) {
-            SæsonKategoriId = value;
-        }
+ 
 
         // ---------------------------------------------------------
         // CREATE - Opretter en ny SæsonKategori i databasen
@@ -61,7 +50,7 @@ namespace SqlConnect {
                     object newIdObj = cmd.ExecuteScalar();
                     int newId = Convert.ToInt32(newIdObj);
 
-                    sk.SetSæsonKategoriId(newId);
+                    sk.SæsonKategoriId = newId;
 
                     // Hvis du vil gemme UgeNumre i en separat tabel:
                     // SaveUgeNumre(sk.GetSæsonKategoriId(), sk.UgeNumre);
@@ -91,7 +80,7 @@ namespace SqlConnect {
                     using (SqlDataReader reader = cmd.ExecuteReader()) {
                         while (reader.Read()) {
                             SæsonKategori sk = new SæsonKategori();
-                            sk.SetSæsonKategoriId(reader.GetInt32(0));
+                            sk.SæsonKategoriId = reader.GetInt32(0);
                             sk.Kategori = reader.GetString(1);
                             sk.PrisMultiplikator = reader.GetInt32(2);
 
@@ -133,7 +122,7 @@ namespace SqlConnect {
                     using (SqlDataReader reader = cmd.ExecuteReader()) {
                         if (reader.Read()) {
                             sk = new SæsonKategori();
-                            sk.SetSæsonKategoriId(reader.GetInt32(0));
+                            sk.SæsonKategoriId = reader.GetInt32(0);
                             sk.Kategori = reader.GetString(1);
                             sk.PrisMultiplikator = reader.GetInt32(2);
 
@@ -167,7 +156,7 @@ namespace SqlConnect {
                 using (SqlCommand cmd = new SqlCommand(query, con)) {
                     cmd.Parameters.AddWithValue("@Kategori", sk.Kategori);
                     cmd.Parameters.AddWithValue("@PrisMultiplikator", sk.PrisMultiplikator);
-                    cmd.Parameters.AddWithValue("@ID", sk.GetSæsonKategoriId());
+                    cmd.Parameters.AddWithValue("@ID", sk.SæsonKategoriId);
 
                     cmd.ExecuteNonQuery();
                 }

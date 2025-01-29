@@ -14,14 +14,6 @@ namespace SqlConnect {
         public string Email { get; set; }
 
         // Metoder til at læse/sætte ID.
-        public int GetOpsynsmandID() {
-            return OpsynsmandID;
-        }
-
-        public void SetOpsynsmandID(int value) {
-            OpsynsmandID = value;
-        }
-
         public static class DatabaseHelper {
             
 
@@ -40,7 +32,7 @@ namespace SqlConnect {
             ";
 
                     using (SqlCommand cmd = new SqlCommand(query, con)) {
-                        cmd.Parameters.AddWithValue("@ID", o.GetOpsynsmandID());
+                        cmd.Parameters.AddWithValue("@ID", o.OpsynsmandID);
                         cmd.Parameters.AddWithValue("@Rolle", o.Rolle ?? (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("@Navn", o.Navn ?? (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("@Phone", o.Phone ?? (object)DBNull.Value);
@@ -68,7 +60,7 @@ namespace SqlConnect {
                         using (SqlDataReader reader = cmd.ExecuteReader()) {
                             while (reader.Read()) {
                                 Opsynsmand o = new Opsynsmand();
-                                o.SetOpsynsmandID(reader.GetInt32(0));
+                                o.OpsynsmandID = reader.GetInt32(0);
                                 o.Rolle = reader.IsDBNull(1) ? null : reader.GetString(1).TrimEnd();
                                 o.Navn = reader.IsDBNull(2) ? null : reader.GetString(2).TrimEnd();
                                 o.Phone = reader.IsDBNull(3) ? null : reader.GetString(3).TrimEnd();
@@ -102,7 +94,7 @@ namespace SqlConnect {
                         using (SqlDataReader reader = cmd.ExecuteReader()) {
                             if (reader.Read()) {
                                 o = new Opsynsmand();
-                                o.SetOpsynsmandID(reader.GetInt32(0));
+                                o.OpsynsmandID = reader.GetInt32(0);
                                 o.Rolle = reader.IsDBNull(1) ? null : reader.GetString(1).TrimEnd();
                                 o.Navn = reader.IsDBNull(2) ? null : reader.GetString(2).TrimEnd();
                                 o.Phone = reader.IsDBNull(3) ? null : reader.GetString(3).TrimEnd();
@@ -134,7 +126,7 @@ namespace SqlConnect {
                         cmd.Parameters.AddWithValue("@Navn", o.Navn ?? (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("@Phone", o.Phone ?? (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("@Email", o.Email ?? (object)DBNull.Value);
-                        cmd.Parameters.AddWithValue("@ID", o.GetOpsynsmandID());
+                        cmd.Parameters.AddWithValue("@ID", o.OpsynsmandID);
 
                         cmd.ExecuteNonQuery();
                     }

@@ -9,29 +9,10 @@ using System.Threading.Tasks;
 namespace SqlConnect {
     class Kunde {
 
-        private int KundeId;
+        private int KundeId { get; set; }
         public string Adresse { get; set; }
         public string Email { get; set; }
         public string Telefon { get; set; }
-
-        public Kunde() {
-        }
-
-        /// <summary>
-        /// Get the KundeId.
-        /// </summary>
-        /// <returns>The KundeId.</returns>
-        public int GetKundeId() {
-            return KundeId;
-        }
-
-        /// <summary>
-        /// Set the KundeId.
-        /// </summary>
-        /// <param name="value">The KundeId value.</param>
-        public void SetKundeId(int value) {
-            KundeId = value;
-        }
 
         /// <summary>
         /// Helper class for database operations related to Kunde.
@@ -59,7 +40,7 @@ namespace SqlConnect {
 
                         object newIdObj = cmd.ExecuteScalar();
                         int newId = Convert.ToInt32(newIdObj);
-                        k.SetKundeId(newId);
+                        k.KundeId = (newId);
                     }
                 }
             }
@@ -81,7 +62,7 @@ namespace SqlConnect {
                         using (SqlDataReader reader = cmd.ExecuteReader()) {
                             while (reader.Read()) {
                                 Kunde r = new Kunde();
-                                r.SetKundeId(reader.GetInt32(0));
+                                r.KundeId = (reader.GetInt32(0));
                                 r.KundeId = reader.GetInt32(1);
                                 r.Email = reader.GetString(2);
                                 r.Telefon = reader.GetString(3);
@@ -117,7 +98,7 @@ namespace SqlConnect {
                         using (SqlDataReader reader = cmd.ExecuteReader()) {
                             if (reader.Read()) {
                                 r = new Kunde();
-                                r.SetKundeId(reader.GetInt32(0));
+                                r.KundeId = (reader.GetInt32(0));
                                 r.KundeId = reader.GetInt32(1);
                                 r.Email = reader.GetString(2);
                                 r.Telefon = reader.GetString(3);

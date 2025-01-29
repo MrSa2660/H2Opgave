@@ -20,17 +20,7 @@ namespace SqlConnect {
         /// Get the OmrådeId.
         /// </summary>
         /// <returns>The OmrådeId.</returns>
-        public int GetOmrådeId() {
-            return OmrådeId;
-        }
-
-        /// <summary>
-        /// Set the OmrådeId.
-        /// </summary>
-        /// <param name="value">The OmrådeId value.</param>
-        public void SetOmrådeId(int value) {
-            OmrådeId = value;
-        }
+        
 
         /// <summary>
         /// Helper class for database operations related to Område.
@@ -56,7 +46,7 @@ namespace SqlConnect {
 
                         object newIdObj = cmd.ExecuteScalar();
                         int newId = Convert.ToInt32(newIdObj);
-                        o.SetOmrådeId(newId);
+                        o.OmrådeId = newId;
                     }
                 }
             }
@@ -78,7 +68,7 @@ namespace SqlConnect {
                         using (SqlDataReader reader = cmd.ExecuteReader()) {
                             while (reader.Read()) {
                                 Område o = new Område();
-                                o.SetOmrådeId(reader.GetInt32(0));
+                                o.OmrådeId = reader.GetInt32(0);
                                 o.Name = reader.GetString(1);
                                 o.KonsulentId = reader.GetInt32(2);
 
@@ -114,7 +104,7 @@ namespace SqlConnect {
                         using (SqlDataReader reader = cmd.ExecuteReader()) {
                             if (reader.Read()) {
                                 o = new Område();
-                                o.SetOmrådeId(reader.GetInt32(0));
+                                o.OmrådeId = reader.GetInt32(0);
                                 o.Name = reader.GetString(1);
                                 o.KonsulentId = reader.GetInt32(2);
 
@@ -144,7 +134,7 @@ namespace SqlConnect {
                     using (SqlCommand cmd = new SqlCommand(query, con)) {
                         cmd.Parameters.AddWithValue("@Name", o.Name);
                         cmd.Parameters.AddWithValue("@KonsulentId", o.KonsulentId);
-                        cmd.Parameters.AddWithValue("@ID", o.GetOmrådeId());
+                        cmd.Parameters.AddWithValue("@ID", o.OmrådeId);
 
                         cmd.ExecuteNonQuery();
                     }

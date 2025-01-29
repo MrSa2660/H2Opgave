@@ -9,7 +9,7 @@ namespace SqlConnect {
     public class Sommerhus {
 
 
-        private static int SommerhusId;
+        private int SommerhusId { get; set; }
         public string Adresse { get; set; }
         public int BasePris { get; set; }
         public int EjerId { get; set; }
@@ -27,17 +27,7 @@ namespace SqlConnect {
         /// Gets the SommerhusId.
         /// </summary>
         /// <returns>The SommerhusId.</returns>
-        public int GetSommerhusId() {
-            return SommerhusId;
-        }
-
-        /// <summary>
-        /// Sets the SommerhusId.
-        /// </summary>
-        /// <param name="value">The value to set.</param>
-        public void SetSommerhusId(int value) {
-            SommerhusId = value;
-        }
+      
 
         /// <summary>
         /// Creates a new Sommerhus.
@@ -67,7 +57,7 @@ namespace SqlConnect {
                     int newId = Convert.ToInt32(newIdObj);
 
                     // Gem ID i Sommerhus-objektet
-                    s.SetSommerhusId(newId);
+                    s.SommerhusId = newId;
 
                     // OBS: Hvis du vil gemme SæsonPriser i en separat tabel, kan du kalde en hjælper her, fx:
                     // SaveSæsonPriser(s.GetSommerhusId(), s.SæsonPriser);
@@ -95,7 +85,7 @@ namespace SqlConnect {
                     using (SqlDataReader reader = cmd.ExecuteReader()) {
                         while (reader.Read()) {
                             Sommerhus s = new Sommerhus();
-                            s.SetSommerhusId(reader.GetInt32(0));
+                            s.SommerhusId = reader.GetInt32(0);
                             s.Adresse = reader.GetString(1);
                             s.BasePris = reader.GetInt32(2);
                             s.EjerId = reader.GetInt32(3);
@@ -139,7 +129,7 @@ namespace SqlConnect {
                     using (SqlDataReader reader = cmd.ExecuteReader()) {
                         if (reader.Read()) {
                             s = new Sommerhus();
-                            s.SetSommerhusId(reader.GetInt32(0));
+                            s.SommerhusId = reader.GetInt32(0);
                             s.Adresse = reader.GetString(1);
                             s.BasePris = reader.GetInt32(2);
                             s.EjerId = reader.GetInt32(3);
@@ -186,7 +176,7 @@ namespace SqlConnect {
                     cmd.Parameters.AddWithValue("@OpsynsmandId", s.OpsynsmandId);
                     cmd.Parameters.AddWithValue("@Klassificering", (object)s.Klassificering ?? DBNull.Value);
                     cmd.Parameters.AddWithValue("@AntalSenge", s.AntalSenge);
-                    cmd.Parameters.AddWithValue("@SommerhusId", s.GetSommerhusId());
+                    cmd.Parameters.AddWithValue("@SommerhusId", s.SommerhusId);
 
                     cmd.ExecuteNonQuery();
                 }
