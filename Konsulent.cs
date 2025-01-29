@@ -1,16 +1,27 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-
 public class Konsulent {
-    public int KonsulentId { get; set; }
+    private int KonsulentId;
     public string Navn { get; set; }
     public string Email { get; set; }
     public string Telefon { get; set; }
     public string Adresse { get; set; }
     public string Type { get; set; }
-    // Navigation property
-    public virtual ICollection<Område> AnsvarligForOmråder { get; set; }
+    public List<Område> AnsvarligForOmråder { get; set; } = new List<Område>();
+
+    public Konsulent() {
+        AnsvarligForOmråder = new List<Område>();
+    }
+
+    public int GetKonsulentId() {
+        return KonsulentId;
+    }
+
+    public void SetKonsulentId(int value) {
+        KonsulentId = value;
+    }
+
     public static class DatabaseHelper {
 
             // -------------------- CREATE Konsulent --------------------

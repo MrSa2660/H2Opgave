@@ -1,10 +1,12 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using System;
+using Microsoft.Data.SqlClient;
+using System.Collections.Generic;
 
 public class Kunde {
 
-    public int KundeId { get; set; }
+    private int KundeId;
     
     public string Email { get; set; }
     
@@ -12,8 +14,19 @@ public class Kunde {
     
     public string Adresse { get; set; }
     
-    // Navigation property
-    public virtual ICollection<Reservation> Reservationer { get; set; }
+    public List<Reservation> Reservationer { get; set; } = new List<Reservation>();
+
+    public Kunde() {
+        Reservationer = new List<Reservation>();
+    }
+
+    public int GetKundeId() {
+        return KundeId;
+    }
+
+    public void SetKundeId(int value) {
+        KundeId = value;
+    }
 
     public static class DatabaseHelper {
 
@@ -31,14 +44,14 @@ public class Kunde {
                 ";
 
                     using (SqlCommand cmd = new SqlCommand(query, con)) {
-                        cmd.Parameters.AddWithValue("@KundeID", k.KundeId);
+                        cmd.Parameters.AddWithValue("@KundeID", k.GetKundeId());
                         cmd.Parameters.AddWithValue("@Adresse", k.Adresse);
                         cmd.Parameters.AddWithValue("@Email", k.Email);
                         cmd.Parameters.AddWithValue("@Tlfnr", k.Telefon);
 
                         object newIdObj = cmd.ExecuteScalar();
                         int newId = Convert.ToInt32(newIdObj);
-                        k.KundeId(newId);
+                        k.SetKundeId(newId);
                     }
                 }
             }
@@ -61,7 +74,6 @@ public class Kunde {
                             while (reader.Read()) {
                                 Kunde r = new Kunde();
                                 r.SetKundeId(reader.GetInt32(0));
-                                r.KundeId = reader.GetInt32(1);
                                 r.Email = reader.GetString(2);
                                 r.Telefon = reader.GetString(3);
                                 r.Adresse = reader.GetString(4);
@@ -97,7 +109,6 @@ public class Kunde {
                             if (reader.Read()) {
                                 r = new Kunde();
                                 r.SetKundeId(reader.GetInt32(0));
-                                r.KundeId = reader.GetInt32(1);
                                 r.Email = reader.GetString(2);
                                 r.Telefon = reader.GetString(3);
                                 r.Adresse = reader.GetString(4);
@@ -125,7 +136,7 @@ public class Kunde {
             ";
 
                     using (SqlCommand cmd = new SqlCommand(query, con)) {
-                        cmd.Parameters.AddWithValue("@KundeId", r.KundeId);
+                        cmd.Parameters.AddWithValue("@KundeId", r.GetKundeId());
                         cmd.Parameters.AddWithValue("@Email", r.Email);
                         cmd.Parameters.AddWithValue("@Tlfnr", r.Telefon);
                         cmd.Parameters.AddWithValue("@Adresse", r.Adresse);

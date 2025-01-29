@@ -3,24 +3,31 @@ using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.Data.SqlClient;
 
 public class Område {
    
-    public int OmrådeId { get; set; }
+    private int OmrådeId;
     
-
     public string Navn { get; set; }
     
     public int KonsulentId { get; set; }
     
-    public virtual Konsulent Konsulent { get; set; }
+    public Konsulent Konsulent { get; set; }
     
-    // Navigation property
-    public virtual ICollection<Sommerhus> Sommerhuse { get; set; }
+    public List<Sommerhus> Sommerhuse { get; set; } = new List<Sommerhus>();
 
     public Område()
     {
         Sommerhuse = new List<Sommerhus>();
+    }
+
+    public int GetOmrådeId() {
+        return OmrådeId;
+    }
+
+    public void SetOmrådeId(int value) {
+        OmrådeId = value;
     }
 
     // Business logic methods
@@ -73,6 +80,7 @@ public class Område {
                $"Kommende reservationer: {stats["Antal kommende reservationer"]}\n" +
                $"Gennemsnitlig ugepris: {GennemsnitligUgePris():C}";
     }
+
     public static class DatabaseHelper {
 
             /// <summary>
@@ -89,12 +97,12 @@ public class Område {
                 ";
 
                     using (SqlCommand cmd = new SqlCommand(query, con)) {
-                        cmd.Parameters.AddWithValue("@Name", o.Name);
+                        cmd.Parameters.AddWithValue("@Name", o.Navn);
                         cmd.Parameters.AddWithValue("@KonsulentId", o.KonsulentId);
 
                         object newIdObj = cmd.ExecuteScalar();
                         int newId = Convert.ToInt32(newIdObj);
-                        o.OmrådeId = newId;
+                        o.SetOmrådeId(newId);
                     }
                 }
             }
@@ -116,8 +124,8 @@ public class Område {
                         using (SqlDataReader reader = cmd.ExecuteReader()) {
                             while (reader.Read()) {
                                 Område o = new Område();
-                                o.OmrådeId = reader.GetInt32(0);
-                                o.Name = reader.GetString(1);
+                                o.SetOmrådeId(reader.GetInt32(0));
+                                o.Navn = reader.GetString(1);
                                 o.KonsulentId = reader.GetInt32(2);
 
                                 // Hent evt. sommerhuse med en separat SELECT, fx:
@@ -152,8 +160,8 @@ public class Område {
                         using (SqlDataReader reader = cmd.ExecuteReader()) {
                             if (reader.Read()) {
                                 o = new Område();
-                                o.OmrådeId = reader.GetInt32(0);
-                                o.Name = reader.GetString(1);
+                                o.SetOmrådeId(reader.GetInt32(0));
+                                o.Navn = reader.GetString(1);
                                 o.KonsulentId = reader.GetInt32(2);
 
                                 // Hent evt. sommerhuse
@@ -180,9 +188,9 @@ public class Område {
                 ";
 
                     using (SqlCommand cmd = new SqlCommand(query, con)) {
-                        cmd.Parameters.AddWithValue("@Name", o.Name);
+                        cmd.Parameters.AddWithValue("@Name", o.Navn);
                         cmd.Parameters.AddWithValue("@KonsulentId", o.KonsulentId);
-                        cmd.Parameters.AddWithValue("@ID", o.OmrådeId);
+                        cmd.Parameters.AddWithValue("@ID", o.GetOmrådeId());
 
                         cmd.ExecuteNonQuery();
                     }

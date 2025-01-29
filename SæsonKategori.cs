@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.Data.SqlClient;
 
 public enum SæsonType
 {
@@ -14,25 +15,26 @@ public enum SæsonType
 
 
 public class SæsonKategori {
+    private int SæsonKategoriId;
+    public string Kategori { get; set; }
+    public int PrisMultiplikator { get; set; }
+    public List<int> UgeNumre { get; set; } = new List<int>();
+    public List<Sommerhus> Sommerhuse { get; set; } = new List<Sommerhus>();
 
-    public int KategoriId { get; set; }
-    
-   
-    public SæsonType Type { get; set; }
-    
-
-    public string Uger { get; set; }
-    
-    public int Pris { get; set; }
-    
-    // Navigation property
-    public virtual ICollection<Sommerhus> Sommerhuse { get; set; }
-
-    public SæsonKategori()
-    {
+    public SæsonKategori() {
         Sommerhuse = new List<Sommerhus>();
+        UgeNumre = new List<int>();
     }
 
+    public int GetSæsonKategoriId() {
+        return SæsonKategoriId;
+    }
+
+    public void SetSæsonKategoriId(int value) {
+        SæsonKategoriId = value;
+    }
+
+    // TODO: Hvordan kommer ugerne fra databasen=
     // Business logic methods
     public List<int> HentUgeNumre()
     {
@@ -49,23 +51,14 @@ public class SæsonKategori {
 
     public decimal BeregnPrisForUge(decimal basisPris)
     {
-        // Beregn pris baseret på sæsonkategori
-        decimal prisFaktor = Type switch
-        {
-            SæsonType.Super => 2.0m,
-            SæsonType.Høj => 1.5m,
-            SæsonType.Mellem => 1.0m,
-            SæsonType.Lav => 0.7m,
-            _ => 1.0m
-        };
-
+        decimal prisFaktor = (decimal)PrisMultiplikator / 100;
         return basisPris * prisFaktor;
     }
 
     public string HentSæsonBeskrivelse()
     {
-        return $"Sæson: {Type}\n" +
-               $"Uger: {Uger}\n" +
+        return $"Sæson: {Kategori}\n" +
+               $"Uger: {string.Join(", ", UgeNumre)}\n" +
                $"Prisfaktor: {BeregnPrisForUge(1000m) / 1000m:F1}x basis pris";
     }
 
@@ -74,7 +67,6 @@ public class SæsonKategori {
         return HentSæsonBeskrivelse();
     }
 
-    // Helper method til at få standard uger for en sæsontype
     public static string HentStandardUger(SæsonType type)
     {
         return type switch
@@ -88,7 +80,16 @@ public class SæsonKategori {
             _ => ""
         };
     }
-    public static void CreateSæsonKategori(SæsonKategori sk) {
+
+    public static class DatabaseHelper {
+        // ---------------------------------------------------------
+        // CREATE - Opretter en ny SæsonKategori i databasen
+        // ---------------------------------------------------------
+        /// <summary>
+        /// Creates a new SæsonKategori in the database.
+        /// </summary>
+        /// <param name="sk">The SæsonKategori object to create.</param>
+        public static void CreateSæsonKategori(SæsonKategori sk) {
             using (SqlConnection con = new SqlConnection(program.connectionString)) {
                 con.Open();
 
@@ -104,11 +105,7 @@ public class SæsonKategori {
 
                     object newIdObj = cmd.ExecuteScalar();
                     int newId = Convert.ToInt32(newIdObj);
-
                     sk.SæsonKategoriId = newId;
-
-                    // Hvis du vil gemme UgeNumre i en separat tabel:
-                    // SaveUgeNumre(sk.GetSæsonKategoriId(), sk.UgeNumre);
                 }
             }
         }
@@ -138,10 +135,6 @@ public class SæsonKategori {
                             sk.SæsonKategoriId = reader.GetInt32(0);
                             sk.Kategori = reader.GetString(1);
                             sk.PrisMultiplikator = reader.GetInt32(2);
-
-                            // Hent evt. UgeNumre fra separat tabel eller JSON
-                            // sk.UgeNumre = LoadUgeNumre(sk.GetSæsonKategoriId());
-
                             liste.Add(sk);
                         }
                     }
@@ -180,8 +173,6 @@ public class SæsonKategori {
                             sk.SæsonKategoriId = reader.GetInt32(0);
                             sk.Kategori = reader.GetString(1);
                             sk.PrisMultiplikator = reader.GetInt32(2);
-
-                            // sk.UgeNumre = LoadUgeNumre(sk.GetSæsonKategoriId());
                         }
                     }
                 }
@@ -247,4 +238,5 @@ public class SæsonKategori {
                 }
             }
         }
+    }
 }

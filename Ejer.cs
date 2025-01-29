@@ -6,17 +6,29 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 public class Ejer
 {
-    public int EjerId { get; set; }
+    // Ændre fra property til privat felt
+    private int EjerId;
     public string Navn { get; set; }
     public string Email { get; set; }
     public string Telefon { get; set; }
     public string Adresse { get; set; }
+    public List<Sommerhus> Sommerhuse { get; set; } = new List<Sommerhus>();
     public DateTime KontraktStartDato { get; set; }
     public DateTime KontraktSlutDato { get; set; }
 
-    // Navigation property
-    public virtual ICollection<Sommerhus> Sommerhuse { get; set; }
+    // Konstruktør
+    public Ejer() {
+        Sommerhuse = new List<Sommerhus>();
+    }
 
+    // Tilføj Get/Set metoder for EjerId
+    public int GetEjerId() {
+        return EjerId;
+    }
+
+    public void SetEjerId(int value) {
+        EjerId = value;
+    }
 
     public static class DatabaseHelper {
 
@@ -72,7 +84,7 @@ public class Ejer
                     using (SqlDataReader reader = cmd.ExecuteReader()) {
                         while (reader.Read()) {
                             Ejer temp = new Ejer();
-                            temp.EjerId(reader.GetInt32(0));
+                            temp.SetEjerId(reader.GetInt32(0));
                             temp.Navn = reader.GetString(1);
                             temp.Email = reader.GetString(2);
                             temp.Telefon = reader.GetString(3);
@@ -113,7 +125,7 @@ public class Ejer
                     using (SqlDataReader reader = cmd.ExecuteReader()) {
                         if (reader.Read()) {
                             ejer = new Ejer();
-                            ejer.EjerId(reader.GetInt32(0));
+                            ejer.SetEjerId(reader.GetInt32(0));
                             ejer.Navn = reader.GetString(1);
                             ejer.Email = reader.GetString(2);
                             ejer.Telefon = reader.GetString(3);

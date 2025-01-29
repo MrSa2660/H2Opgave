@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Collections.Generic;
-
+using System.Data.SqlClient;
 
 public class Sommerhus {
     [Key]
@@ -103,7 +103,16 @@ public class Sommerhus {
                $"Klassifikation: {Klassifikation}\n" +
                $"Ugentlig basispris: {BasePris:C}";
     }
-    public static void CreateSommerhus(Sommerhus s) {
+
+    public static class DatabaseHelper {
+        // ---------------------------------------------------------
+        // CREATE - Opretter et nyt Sommerhus i databasen
+        // ---------------------------------------------------------
+        /// <summary>
+        /// Creates a new Sommerhus in the database.
+        /// </summary>
+        /// <param name="s">The Sommerhus object to create.</param>
+        public static void CreateSommerhus(Sommerhus s) {
             using (SqlConnection con = new SqlConnection(program.connectionString)) {
                 con.Open();
 
@@ -133,9 +142,11 @@ public class Sommerhus {
                     // SaveSæsonPriser(s.GetSommerhusId(), s.SæsonPriser);
                 }
             }
-
         }
 
+        // ---------------------------------------------------------
+        // READ (1) - Henter alle Sommerhuse
+        // ---------------------------------------------------------
         /// <summary>
         /// Reads all Sommerhuse.
         /// </summary>
@@ -176,6 +187,9 @@ public class Sommerhus {
             return liste;
         }
 
+        // ---------------------------------------------------------
+        // READ (2) - Henter ét Sommerhus via ID
+        // ---------------------------------------------------------
         /// <summary>
         /// Reads a Sommerhus by its ID.
         /// </summary>
@@ -218,6 +232,9 @@ public class Sommerhus {
             return s;
         }
 
+        // ---------------------------------------------------------
+        // UPDATE - Opdaterer et eksisterende Sommerhus
+        // ---------------------------------------------------------
         /// <summary>
         /// Updates a Sommerhus.
         /// </summary>
@@ -257,6 +274,9 @@ public class Sommerhus {
             }
         }
 
+        // ---------------------------------------------------------
+        // DELETE - Sletter et Sommerhus via ID
+        // ---------------------------------------------------------
         /// <summary>
         /// Deletes a Sommerhus by its ID.
         /// </summary>
@@ -278,4 +298,5 @@ public class Sommerhus {
 
             // Evt. slette række(r) i en separat tabel for SæsonPriser
         }
+    }
 }

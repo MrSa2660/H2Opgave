@@ -6,28 +6,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ISOWeek;
-
+using Microsoft.Data.SqlClient;
 
 public class Reservation {
-  
-    public int ReservationId { get; set; }
-    
+    private int ReservationId;
     public int SommerhusId { get; set; }
-    
     public int KundeId { get; set; }
-    
     public DateTime StartDato { get; set; }
-    
     public DateTime SlutDato { get; set; }
+
+    // TODO: Spørg hvorfor Sommerhus og Kunder er nødvendige
     
-    public virtual Sommerhus Sommerhus { get; set; }
-    
-    public virtual Kunde Kunde { get; set; }
+    public Sommerhus Sommerhus { get; set; }
+    public Kunde Kunde { get; set; }
+
+    public int GetReservationId() {
+        return ReservationId;
+    }
+
+    public void SetReservationId(int value) {
+        ReservationId = value;
+    }
 
     // Business logic methods
     public bool ErGyldigPeriode()
     {
-        // Check om perioden starter og slutter på en lørdag
+    // Business logic methodsstarter og slutter på en lørdag
         if (StartDato.DayOfWeek != DayOfWeek.Saturday || SlutDato.DayOfWeek != DayOfWeek.Saturday)
             return false;
 
@@ -52,7 +56,7 @@ public class Reservation {
         }
 
         decimal totalPris = 0;
-        var sæsonkategorier = SqlConnect.SæsonKategori.ReadAllSæsonKategorier();
+        var sæsonkategorier = SæsonKategori.DatabaseHelper.ReadAllSæsonKategorier();
         
         // For hver uge i reservationen
         DateTime currentUgeStart = StartDato;
@@ -123,7 +127,7 @@ public class Reservation {
 
                         object newIdObj = cmd.ExecuteScalar();
                         int newId = Convert.ToInt32(newIdObj);
-                        r.ReservationId = newId;
+                        r.SetReservationId(newId);
                     }
                 }
             }
@@ -146,7 +150,7 @@ public class Reservation {
                         using (SqlDataReader reader = cmd.ExecuteReader()) {
                             while (reader.Read()) {
                                 Reservation r = new Reservation();
-                                r.ReservationId = reader.GetInt32(0);
+                                r.SetReservationId(reader.GetInt32(0));
                                 r.SommerhusId = reader.GetInt32(1);
                                 r.KundeId = reader.GetInt32(2);
                                 r.StartDato = reader.GetDateTime(3);
@@ -182,7 +186,7 @@ public class Reservation {
                         using (SqlDataReader reader = cmd.ExecuteReader()) {
                             if (reader.Read()) {
                                 r = new Reservation();
-                                r.ReservationId = reader.GetInt32(0);
+                                r.SetReservationId(reader.GetInt32(0));
                                 r.SommerhusId = reader.GetInt32(1);
                                 r.KundeId = reader.GetInt32(2);
                                 r.StartDato = reader.GetDateTime(3);
@@ -216,7 +220,7 @@ public class Reservation {
                         cmd.Parameters.AddWithValue("@KundeId", r.KundeId);
                         cmd.Parameters.AddWithValue("@StartDato", r.StartDato);
                         cmd.Parameters.AddWithValue("@SlutDato", r.SlutDato);
-                        cmd.Parameters.AddWithValue("@ID", r.ReservationId);
+                        cmd.Parameters.AddWithValue("@ID", r.GetReservationId());
 
                         cmd.ExecuteNonQuery();
                     }

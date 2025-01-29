@@ -401,7 +401,7 @@ public class Menu
 
         try
         {
-            SqlConnect.Sommerhus.CreateSommerhus(nytSommerhus);
+            Sommerhus.DatabaseHelper.CreateSommerhus(nytSommerhus);
             Console.WriteLine("Sommerhus oprettet succesfuldt!");
         }
         catch (Exception ex)
@@ -417,7 +417,7 @@ public class Menu
 
         try
         {
-            var sommerhuse = SqlConnect.Sommerhus.ReadAllSommerhuse();
+            var sommerhuse = Sommerhus.DatabaseHelper.ReadAllSommerhuse();
             VisPaginering(sommerhuse, VisSommerhusDetaljer, "sommerhuse");
         }
         catch (Exception ex)
@@ -436,7 +436,7 @@ public class Menu
         {
             try
             {
-                var sommerhus = SqlConnect.Sommerhus.ReadSommerhusById(sommerhusId);
+                var sommerhus = Sommerhus.DatabaseHelper.ReadSommerhusById(sommerhusId);
                 if (sommerhus != null)
                 {
                     VisSommerhusDetaljer(sommerhus);
@@ -471,7 +471,7 @@ public class Menu
 
         try
         {
-            var sommerhus = SqlConnect.Sommerhus.ReadSommerhusById(sommerhusId);
+            var sommerhus = Sommerhus.DatabaseHelper.ReadSommerhusById(sommerhusId);
             if (sommerhus == null)
             {
                 Console.WriteLine("Sommerhus ikke fundet.");
@@ -523,7 +523,7 @@ public class Menu
             if (!string.IsNullOrWhiteSpace(nytAntalSenge) && int.TryParse(nytAntalSenge, out int antalSenge))
                 sommerhus.AntalSenge = antalSenge;
 
-            SqlConnect.Sommerhus.UpdateSommerhus(sommerhus);
+            Sommerhus.DatabaseHelper.UpdateSommerhus(sommerhus);
             Console.WriteLine("Sommerhus opdateret succesfuldt!");
         }
         catch (Exception ex)
@@ -542,7 +542,7 @@ public class Menu
         {
             try
             {
-                var sommerhus = SqlConnect.Sommerhus.ReadSommerhusById(sommerhusId);
+                var sommerhus = Sommerhus.DatabaseHelper.ReadSommerhusById(sommerhusId);
                 if (sommerhus == null)
                 {
                     Console.WriteLine("Sommerhus ikke fundet.");
@@ -555,7 +555,7 @@ public class Menu
                 Console.Write("\nEr du sikker på at du vil slette dette sommerhus? (ja/nej): ");
                 if (Console.ReadLine().ToLower() == "ja")
                 {
-                    SqlConnect.Sommerhus.DeleteSommerhus(sommerhusId);
+                    Sommerhus.DatabaseHelper.DeleteSommerhus(sommerhusId);
                     Console.WriteLine("Sommerhus slettet succesfuldt!");
                 }
                 else
@@ -574,9 +574,9 @@ public class Menu
         }
     }
 
-    private void VisSommerhusDetaljer(SqlConnect.Sommerhus sommerhus)
+    private void VisSommerhusDetaljer(Sommerhus sommerhus)
     {
-        Console.WriteLine($"ID: {sommerhus.GetSommerhusId()}");
+        Console.WriteLine($"ID: {sommerhus.SommerhusId}");
         Console.WriteLine($"Adresse: {sommerhus.Adresse}");
         Console.WriteLine($"Basepris: {sommerhus.BasePris} kr");
         Console.WriteLine($"Ejer ID: {sommerhus.EjerId}");
@@ -627,7 +627,7 @@ public class Menu
         Console.Clear();
         Console.WriteLine("=== Opret Ny Reservation ===\n");
 
-        SqlConnect.Reservation nyReservation = new SqlConnect.Reservation();
+        Reservation nyReservation = new Reservation();
 
         Console.Write("Indtast sommerhus ID: ");
         if (!int.TryParse(Console.ReadLine(), out int sommerhusId))
@@ -671,7 +671,7 @@ public class Menu
         try
         {
             // Tjek for overlappende reservationer
-            var alleReservationer = SqlConnect.DatabaseHelper.ReadAllReservationer()
+            var alleReservationer = Reservation.DatabaseHelper.ReadAllReservationer()
                 .Where(r => r.SommerhusId == sommerhusId)
                 .ToList();
 
@@ -686,7 +686,7 @@ public class Menu
                 return;
             }
 
-            SqlConnect.DatabaseHelper.CreateReservation(nyReservation);
+            Reservation.DatabaseHelper.CreateReservation(nyReservation);
             Console.WriteLine($"\nReservation oprettet med ID: {nyReservation.GetReservationId()}!");
         }
         catch (Exception ex)
@@ -702,7 +702,7 @@ public class Menu
 
         try
         {
-            var reservationer = SqlConnect.DatabaseHelper.ReadAllReservationer();
+            var reservationer = Reservation.DatabaseHelper.ReadAllReservationer();
             VisPaginering(reservationer, VisReservationDetaljer, "reservationer");
         }
         catch (Exception ex)
@@ -721,7 +721,7 @@ public class Menu
         {
             try
             {
-                var reservation = SqlConnect.DatabaseHelper.ReadReservationById(reservationId);
+                var reservation = Reservation.DatabaseHelper.ReadReservationById(reservationId);
                 if (reservation != null)
                 {
                     VisReservationDetaljer(reservation);
@@ -756,7 +756,7 @@ public class Menu
 
         try
         {
-            var reservation = SqlConnect.DatabaseHelper.ReadReservationById(reservationId);
+            var reservation = Reservation.DatabaseHelper.ReadReservationById(reservationId);
             if (reservation == null)
             {
                 Console.WriteLine("Reservation ikke fundet.");
@@ -799,7 +799,7 @@ public class Menu
             }
 
             // Tjek for overlappende reservationer (undtagen den nuværende reservation)
-            var alleReservationer = SqlConnect.DatabaseHelper.ReadAllReservationer()
+            var alleReservationer = Reservation.DatabaseHelper.ReadAllReservationer()
                 .Where(r => r.SommerhusId == sommerhusId && r.GetReservationId() != reservationId)
                 .ToList();
 
@@ -818,7 +818,7 @@ public class Menu
             reservation.StartDato = startDato;
             reservation.SlutDato = slutDato;
 
-            SqlConnect.DatabaseHelper.UpdateReservation(reservation);
+            Reservation.DatabaseHelper.UpdateReservation(reservation);
             Console.WriteLine("Reservation opdateret succesfuldt!");
         }
         catch (Exception ex)
@@ -837,7 +837,7 @@ public class Menu
         {
             try
             {
-                var reservation = SqlConnect.DatabaseHelper.ReadReservationById(reservationId);
+                var reservation = Reservation.DatabaseHelper.ReadReservationById(reservationId);
                 if (reservation == null)
                 {
                     Console.WriteLine("Reservation ikke fundet.");
@@ -850,7 +850,7 @@ public class Menu
                 Console.Write("\nEr du sikker på at du vil slette denne reservation? (ja/nej): ");
                 if (Console.ReadLine().ToLower() == "ja")
                 {
-                    SqlConnect.DatabaseHelper.DeleteReservation(reservationId);
+                    Reservation.DatabaseHelper.DeleteReservation(reservationId);
                     Console.WriteLine("Reservation slettet succesfuldt!");
                 }
                 else
@@ -876,7 +876,7 @@ public class Menu
 
         try
         {
-            var alleReservationer = SqlConnect.DatabaseHelper.ReadAllReservationer();
+            var alleReservationer = Reservation.DatabaseHelper.ReadAllReservationer();
             var aktiveReservationer = alleReservationer.Where(r => 
                 r.StartDato <= DateTime.Today && r.SlutDato >= DateTime.Today).ToList();
 
@@ -905,7 +905,7 @@ public class Menu
 
         try
         {
-            var alleReservationer = SqlConnect.DatabaseHelper.ReadAllReservationer();
+            var alleReservationer = Reservation.DatabaseHelper.ReadAllReservationer();
             var kommendeReservationer = alleReservationer.Where(r => 
                 r.StartDato > DateTime.Today).OrderBy(r => r.StartDato).ToList();
 
@@ -932,7 +932,6 @@ public class Menu
         Console.Clear();
         Console.WriteLine("=== Søg Reservationer for Sommerhus ===\n");
         
-        // Først finder vi sommerhuset
         Console.Write("Indtast sommerhus ID: ");
         if (!int.TryParse(Console.ReadLine(), out int sommerhusId))
         {
@@ -943,7 +942,7 @@ public class Menu
         try
         {
             // Hent sommerhuset for at verificere at det eksisterer
-            var sommerhus = SqlConnect.Sommerhus.ReadSommerhusById(sommerhusId);
+            var sommerhus = Sommerhus.DatabaseHelper.ReadSommerhusById(sommerhusId);
             if (sommerhus == null)
             {
                 Console.WriteLine("Sommerhus ikke fundet.");
@@ -955,7 +954,7 @@ public class Menu
             Console.WriteLine(new string('-', 50));
 
             // Hent alle reservationer og filtrer efter sommerhus ID
-            var alleReservationer = SqlConnect.DatabaseHelper.ReadAllReservationer();
+            var alleReservationer = Reservation.DatabaseHelper.ReadAllReservationer();
             var sommerhusReservationer = alleReservationer
                 .Where(r => r.SommerhusId == sommerhusId)
                 .OrderBy(r => r.StartDato)
@@ -1014,7 +1013,7 @@ public class Menu
         }
     }
 
-    private void VisReservationDetaljer(SqlConnect.Reservation reservation)
+    private void VisReservationDetaljer(Reservation reservation)
     {
         Console.WriteLine($"Reservations ID: {reservation.GetReservationId()}");
         Console.WriteLine($"Sommerhus ID: {reservation.SommerhusId}");
@@ -1031,7 +1030,7 @@ public class Menu
         Console.Clear();
         Console.WriteLine("=== Opret Nyt Område ===\n");
 
-        SqlConnect.Område nytOmråde = new SqlConnect.Område();
+        Område nytOmråde = new Område();
 
         Console.Write("Indtast områdenavn: ");
         nytOmråde.Name = Console.ReadLine();
@@ -1051,7 +1050,7 @@ public class Menu
 
         try
         {
-            SqlConnect.Område.DatabaseHelper.CreateOmråde(nytOmråde);
+            Område.DatabaseHelper.CreateOmråde(nytOmråde);
             Console.WriteLine($"\nOmråde oprettet med ID: {nytOmråde.GetOmrådeId()}!");
         }
         catch (Exception ex)
@@ -1067,7 +1066,7 @@ public class Menu
 
         try
         {
-            var områder = SqlConnect.Område.DatabaseHelper.ReadAllOmråder();
+            var områder = Område.DatabaseHelper.ReadAllOmråder();
             VisPaginering(områder, VisOmrådeDetaljer, "områder");
         }
         catch (Exception ex)
@@ -1086,7 +1085,7 @@ public class Menu
         {
             try
             {
-                var område = SqlConnect.Område.DatabaseHelper.ReadOmrådeById(områdeId);
+                var område = Område.DatabaseHelper.ReadOmrådeById(områdeId);
                 if (område != null)
                 {
                     VisOmrådeDetaljer(område);
@@ -1121,7 +1120,7 @@ public class Menu
 
         try
         {
-            var område = SqlConnect.Område.DatabaseHelper.ReadOmrådeById(områdeId);
+            var område = Område.DatabaseHelper.ReadOmrådeById(områdeId);
             if (område == null)
             {
                 Console.WriteLine("Område ikke fundet.");
@@ -1143,7 +1142,7 @@ public class Menu
             if (!string.IsNullOrWhiteSpace(nyKonsulentId) && int.TryParse(nyKonsulentId, out int konsulentId))
                 område.KonsulentId = konsulentId;
 
-            SqlConnect.Område.DatabaseHelper.UpdateOmråde(område);
+            Område.DatabaseHelper.UpdateOmråde(område);
             Console.WriteLine("Område opdateret succesfuldt!");
         }
         catch (Exception ex)
@@ -1162,7 +1161,7 @@ public class Menu
         {
             try
             {
-                var område = SqlConnect.Område.DatabaseHelper.ReadOmrådeById(områdeId);
+                var område = Område.DatabaseHelper.ReadOmrådeById(områdeId);
                 if (område == null)
                 {
                     Console.WriteLine("Område ikke fundet.");
@@ -1175,7 +1174,7 @@ public class Menu
                 Console.Write("\nEr du sikker på at du vil slette dette område? (ja/nej): ");
                 if (Console.ReadLine().ToLower() == "ja")
                 {
-                    SqlConnect.Område.DatabaseHelper.DeleteOmråde(områdeId);
+                    Område.DatabaseHelper.DeleteOmråde(områdeId);
                     Console.WriteLine("Område slettet succesfuldt!");
                 }
                 else
@@ -1208,14 +1207,14 @@ public class Menu
 
         try
         {
-            var område = SqlConnect.Område.DatabaseHelper.ReadOmrådeById(områdeId);
+            var område = Område.DatabaseHelper.ReadOmrådeById(områdeId);
             if (område == null)
             {
                 Console.WriteLine("Område ikke fundet.");
                 return;
             }
 
-            var sommerhuse = SqlConnect.Sommerhus.ReadAllSommerhuse()
+            var sommerhuse = Sommerhus.DatabaseHelper.ReadAllSommerhuse()
                 .Where(s => s.OmrådeId == områdeId).ToList();
 
             Console.WriteLine($"\nStatistik for område: {område.Name}");
@@ -1253,7 +1252,7 @@ public class Menu
 
         try
         {
-            var område = SqlConnect.Område.DatabaseHelper.ReadOmrådeById(områdeId);
+            var område = Område.DatabaseHelper.ReadOmrådeById(områdeId);
             if (område == null)
             {
                 Console.WriteLine("Område ikke fundet.");
@@ -1261,7 +1260,7 @@ public class Menu
             }
 
             Console.WriteLine($"\nSommerhuse i {område.Name}:");
-            var sommerhuse = SqlConnect.Sommerhus.ReadAllSommerhuse()
+            var sommerhuse = Sommerhus.DatabaseHelper.ReadAllSommerhuse()
                 .Where(s => s.OmrådeId == områdeId).ToList();
 
             if (sommerhuse.Count == 0)
@@ -1282,10 +1281,10 @@ public class Menu
         }
     }
 
-    private void VisOmrådeDetaljer(SqlConnect.Område område)
+    private void VisOmrådeDetaljer(Område område)
     {
         Console.WriteLine($"Område ID: {område.GetOmrådeId()}");
-        Console.WriteLine($"Navn: {område.Name}");
+        Console.WriteLine($"Navn: {område.Navn}");
         Console.WriteLine($"Konsulent ID: {område.KonsulentId}");
     }
     #endregion
@@ -1296,7 +1295,7 @@ public class Menu
         Console.Clear();
         Console.WriteLine("=== Opret Ny Sæsonkategori ===\n");
 
-        SqlConnect.SæsonKategori nySæson = new SqlConnect.SæsonKategori();
+        SæsonKategori nySæson = new SæsonKategori();
 
         Console.Write("Indtast kategori (super/høj/mellem/lav): ");
         nySæson.Kategori = Console.ReadLine().ToLower();
@@ -1338,7 +1337,7 @@ public class Menu
 
         try
         {
-            SqlConnect.SæsonKategori.CreateSæsonKategori(nySæson);
+            SæsonKategori.CreateSæsonKategori(nySæson);
             Console.WriteLine($"\nSæsonkategori oprettet med ID: {nySæson.GetSæsonKategoriId()}!");
         }
         catch (Exception ex)
@@ -1354,7 +1353,7 @@ public class Menu
 
         try
         {
-            var kategorier = SqlConnect.SæsonKategori.ReadAllSæsonKategorier();
+            var kategorier = SæsonKategori.ReadAllSæsonKategorier();
             VisPaginering(kategorier, VisSæsonkategoriDetaljer, "sæsonkategorier");
         }
         catch (Exception ex)
@@ -1373,7 +1372,7 @@ public class Menu
         {
             try
             {
-                var kategori = SqlConnect.SæsonKategori.ReadSæsonKategoriById(kategoriId);
+                var kategori = SæsonKategori.ReadSæsonKategoriById(kategoriId);
                 if (kategori != null)
                 {
                     VisSæsonkategoriDetaljer(kategori);
@@ -1408,7 +1407,7 @@ public class Menu
 
         try
         {
-            var kategori = SqlConnect.SæsonKategori.ReadSæsonKategoriById(kategoriId);
+            var kategori = SæsonKategori.ReadSæsonKategoriById(kategoriId);
             if (kategori == null)
             {
                 Console.WriteLine("Sæsonkategori ikke fundet.");
@@ -1458,7 +1457,7 @@ public class Menu
                 }
             }
 
-            SqlConnect.SæsonKategori.UpdateSæsonKategori(kategori);
+            SæsonKategori.UpdateSæsonKategori(kategori);
             Console.WriteLine("Sæsonkategori opdateret succesfuldt!");
         }
         catch (Exception ex)
@@ -1477,7 +1476,7 @@ public class Menu
         {
             try
             {
-                var kategori = SqlConnect.SæsonKategori.ReadSæsonKategoriById(kategoriId);
+                var kategori = SæsonKategori.ReadSæsonKategoriById(kategoriId);
                 if (kategori == null)
                 {
                     Console.WriteLine("Sæsonkategori ikke fundet.");
@@ -1490,7 +1489,7 @@ public class Menu
                 Console.Write("\nEr du sikker på at du vil slette denne sæsonkategori? (ja/nej): ");
                 if (Console.ReadLine().ToLower() == "ja")
                 {
-                    SqlConnect.SæsonKategori.DeleteSæsonKategori(kategoriId);
+                    SæsonKategori.DeleteSæsonKategori(kategoriId);
                     Console.WriteLine("Sæsonkategori slettet succesfuldt!");
                 }
                 else
@@ -1523,7 +1522,7 @@ public class Menu
 
         try
         {
-            var kategori = SqlConnect.SæsonKategori.ReadSæsonKategoriById(kategoriId);
+            var kategori = SæsonKategori.ReadSæsonKategoriById(kategoriId);
             if (kategori == null)
             {
                 Console.WriteLine("Sæsonkategori ikke fundet.");
@@ -1532,7 +1531,7 @@ public class Menu
 
             Console.WriteLine($"\nPriser for {kategori.Kategori}-sæson (multiplikator: {kategori.PrisMultiplikator}%):");
             
-            var sommerhuse = SqlConnect.Sommerhus.ReadAllSommerhuse();
+            var sommerhuse = Sommerhus.DatabaseHelper.ReadAllSommerhuse();
             Console.WriteLine("\nEksempel priser for forskellige sommerhuse:");
             
             // Vis eksempler på priser for forskellige basispriser
@@ -1555,7 +1554,7 @@ public class Menu
         }
     }
 
-    private void VisSæsonkategoriDetaljer(SqlConnect.SæsonKategori kategori)
+    private void VisSæsonkategoriDetaljer(SæsonKategori kategori)
     {
         Console.WriteLine($"Sæsonkategori ID: {kategori.GetSæsonKategoriId()}");
         Console.WriteLine($"Kategori: {kategori.Kategori}");
@@ -1847,7 +1846,7 @@ public class Menu
         Console.Write("Adresse: ");
         string adresse = Console.ReadLine();
 
-        var kunde = new SqlConnect.Kunde
+        var kunde = new Kunde
         {
             Navn = navn,
             Email = email,
@@ -1857,7 +1856,7 @@ public class Menu
 
         try
         {
-            SqlConnect.DatabaseHelper.CreateKunde(kunde);
+            DatabaseHelper.CreateKunde(kunde);
             Console.WriteLine($"\nKunde oprettet med ID: {kunde.GetKundeId()}!");
         }
         catch (Exception ex)
@@ -1873,7 +1872,7 @@ public class Menu
 
         try
         {
-            var kunder = SqlConnect.DatabaseHelper.ReadAllKunder();
+            var kunder = DatabaseHelper.ReadAllKunder();
             VisPaginering(kunder, VisKundeDetaljer, "kunder");
         }
         catch (Exception ex)
@@ -1892,7 +1891,7 @@ public class Menu
         {
             try
             {
-                var kunde = SqlConnect.DatabaseHelper.ReadKundeById(kundeId);
+                var kunde = DatabaseHelper.ReadKundeById(kundeId);
                 if (kunde != null)
                 {
                     VisKundeDetaljer(kunde);
@@ -1927,7 +1926,7 @@ public class Menu
 
         try
         {
-            var kunde = SqlConnect.DatabaseHelper.ReadKundeById(kundeId);
+            var kunde = DatabaseHelper.ReadKundeById(kundeId);
             if (kunde == null)
             {
                 Console.WriteLine("Kunde ikke fundet.");
@@ -1959,7 +1958,7 @@ public class Menu
             if (!string.IsNullOrWhiteSpace(nyAdresse))
                 kunde.Adresse = nyAdresse;
 
-            SqlConnect.DatabaseHelper.UpdateKunde(kunde);
+            DatabaseHelper.UpdateKunde(kunde);
             Console.WriteLine("Kunde opdateret succesfuldt!");
         }
         catch (Exception ex)
@@ -1982,7 +1981,7 @@ public class Menu
 
         try
         {
-            var kunde = SqlConnect.DatabaseHelper.ReadKundeById(kundeId);
+            var kunde = DatabaseHelper.ReadKundeById(kundeId);
             if (kunde == null)
             {
                 Console.WriteLine("Kunde ikke fundet.");
@@ -1995,7 +1994,7 @@ public class Menu
             Console.Write("\nEr du sikker på at du vil slette denne kunde? (ja/nej): ");
             if (Console.ReadLine().ToLower() == "ja")
             {
-                SqlConnect.DatabaseHelper.DeleteKunde(kundeId);
+                DatabaseHelper.DeleteKunde(kundeId);
                 Console.WriteLine("Kunde slettet succesfuldt!");
             }
             else
@@ -2023,7 +2022,7 @@ public class Menu
 
         try
         {
-            var kunde = SqlConnect.DatabaseHelper.ReadKundeById(kundeId);
+            var kunde = DatabaseHelper.ReadKundeById(kundeId);
             if (kunde == null)
             {
                 Console.WriteLine("Kunde ikke fundet.");
@@ -2031,7 +2030,7 @@ public class Menu
             }
 
             Console.WriteLine($"\nReservationer for {kunde.Navn}:");
-            var alleReservationer = SqlConnect.DatabaseHelper.ReadAllReservationer();
+            var alleReservationer = Reservation.DatabaseHelper.ReadAllReservationer();
             var kundeReservationer = alleReservationer.Where(r => r.KundeId == kundeId).ToList();
 
             if (kundeReservationer.Count == 0)
@@ -2052,7 +2051,7 @@ public class Menu
         }
     }
 
-    private void VisKundeDetaljer(SqlConnect.Kunde kunde)
+    private void VisKundeDetaljer(Kunde kunde)
     {
         Console.WriteLine($"Kunde ID: {kunde.GetKundeId()}");
         Console.WriteLine($"Navn: {kunde.Navn}");
@@ -2133,7 +2132,7 @@ public class Menu
             return;
         }
 
-        var opsynsmand = new SqlConnect.Opsynsmand
+        var opsynsmand = new Opsynsmand
         {
             Navn = navn,
             Email = email,
@@ -2143,7 +2142,7 @@ public class Menu
 
         try
         {
-            SqlConnect.DatabaseHelper.CreateOpsynsmand(opsynsmand);
+            DatabaseHelper.CreateOpsynsmand(opsynsmand);
             Console.WriteLine($"\nOpsynsmand oprettet med ID: {opsynsmand.GetOpsynsmandId()}!");
         }
         catch (Exception ex)
@@ -2159,7 +2158,7 @@ public class Menu
 
         try
         {
-            var opsynsmænd = SqlConnect.DatabaseHelper.ReadAllOpsynsmænd();
+            var opsynsmænd = DatabaseHelper.ReadAllOpsynsmænd();
             VisPaginering(opsynsmænd, VisOpsynsmandDetaljer, "opsynsmænd");
         }
         catch (Exception ex)
@@ -2178,7 +2177,7 @@ public class Menu
         {
             try
             {
-                var opsynsmand = SqlConnect.DatabaseHelper.ReadOpsynsmandById(opsynsmandId);
+                var opsynsmand = DatabaseHelper.ReadOpsynsmandById(opsynsmandId);
                 if (opsynsmand != null)
                 {
                     VisOpsynsmandDetaljer(opsynsmand);
@@ -2345,7 +2344,7 @@ public class Menu
         Console.WriteLine($"Navn: {opsynsmand.Navn}");
         Console.WriteLine($"Email: {opsynsmand.Email}");
         Console.WriteLine($"Telefon: {opsynsmand.Telefon}");
-        Console.WriteLine($"Område ID: {opsynsmand.OmrådeId}");
+        Console.WriteLine($"Rolle: {opsynsmand.Rolle}");
     }
     #endregion
 
@@ -2420,7 +2419,7 @@ public class Menu
         Console.Write("Adresse: ");
         string adresse = Console.ReadLine();
 
-        var konsulent = new SqlConnect.Konsulent
+        var konsulent = new Konsulent
         {
             Navn = navn,
             Email = email,
@@ -2430,7 +2429,7 @@ public class Menu
 
         try
         {
-            SqlConnect.DatabaseHelper.CreateKonsulent(konsulent);
+            Konsulent.DatabaseHelper.CreateKonsulent(konsulent);
             Console.WriteLine($"\nKonsulent oprettet med ID: {konsulent.GetKonsulentId()}!");
         }
         catch (Exception ex)
@@ -2449,7 +2448,7 @@ public class Menu
 
         try
         {
-            var konsulenter = SqlConnect.DatabaseHelper.ReadAllKonsulenter();
+            var konsulenter = Konsulent.DatabaseHelper.ReadAllKonsulenter();
             VisPaginering(konsulenter, VisKonsulentDetaljer, "konsulenter");
         }
         catch (Exception ex)
@@ -2470,7 +2469,7 @@ public class Menu
         {
             try
             {
-                var konsulent = SqlConnect.DatabaseHelper.ReadKonsulentById(konsulentId);
+                var konsulent = Konsulent.DatabaseHelper.ReadKonsulentById(konsulentId);
                 if (konsulent != null)
                 {
                     VisKonsulentDetaljer(konsulent);
@@ -2510,7 +2509,7 @@ public class Menu
 
         try
         {
-            var konsulent = SqlConnect.DatabaseHelper.ReadKonsulentById(konsulentId);
+            var konsulent = Konsulent.DatabaseHelper.ReadKonsulentById(konsulentId);
             if (konsulent == null)
             {
                 Console.WriteLine("Konsulent ikke fundet.");
@@ -2544,7 +2543,7 @@ public class Menu
             if (!string.IsNullOrWhiteSpace(nyAdresse))
                 konsulent.Adresse = nyAdresse;
 
-            SqlConnect.DatabaseHelper.UpdateKonsulent(konsulent);
+            Konsulent.DatabaseHelper.UpdateKonsulent(konsulent);
             Console.WriteLine("Konsulent opdateret succesfuldt!");
         }
         catch (Exception ex)
@@ -2572,7 +2571,7 @@ public class Menu
 
         try
         {
-            var konsulent = SqlConnect.DatabaseHelper.ReadKonsulentById(konsulentId);
+            var konsulent = Konsulent.DatabaseHelper.ReadKonsulentById(konsulentId);
             if (konsulent == null)
             {
                 Console.WriteLine("Konsulent ikke fundet.");
@@ -2582,7 +2581,7 @@ public class Menu
             }
 
             // Tjek om konsulenten har tilknyttede områder
-            var områder = SqlConnect.DatabaseHelper.ReadAllOmråder()
+            var områder = Område.DatabaseHelper.ReadAllOmråder()
                 .Where(o => o.KonsulentId == konsulentId)
                 .ToList();
 
@@ -2591,7 +2590,7 @@ public class Menu
                 Console.WriteLine("\nKonsulenten har følgende tilknyttede områder:");
                 foreach (var område in områder)
                 {
-                    Console.WriteLine($"- {område.Name}");
+                    Console.WriteLine($"- {område.Navn}");
                 }
                 Console.WriteLine("\nDu skal først tildele områderne til en anden konsulent.");
                 Console.WriteLine("\nTryk en tast for at fortsætte...");
@@ -2605,7 +2604,7 @@ public class Menu
             Console.Write("\nEr du sikker på at du vil slette denne konsulent? (ja/nej): ");
             if (Console.ReadLine().ToLower() == "ja")
             {
-                SqlConnect.DatabaseHelper.DeleteKonsulent(konsulentId);
+                Konsulent.DatabaseHelper.DeleteKonsulent(konsulentId);
                 Console.WriteLine("Konsulent slettet succesfuldt!");
             }
             else
@@ -2638,7 +2637,7 @@ public class Menu
 
         try
         {
-            var konsulent = SqlConnect.DatabaseHelper.ReadKonsulentById(konsulentId);
+            var konsulent = Konsulent.DatabaseHelper.ReadKonsulentById(konsulentId);
             if (konsulent == null)
             {
                 Console.WriteLine("Konsulent ikke fundet.");
@@ -2647,7 +2646,7 @@ public class Menu
                 return;
             }
 
-            var områder = SqlConnect.DatabaseHelper.ReadAllOmråder()
+            var områder = Område.DatabaseHelper.ReadAllOmråder()
                 .Where(o => o.KonsulentId == konsulentId)
                 .ToList();
 
@@ -2690,7 +2689,7 @@ public class Menu
 
         try
         {
-            var konsulent = SqlConnect.DatabaseHelper.ReadKonsulentById(konsulentId);
+            var konsulent = Konsulent.DatabaseHelper.ReadKonsulentById(konsulentId);
             if (konsulent == null)
             {
                 Console.WriteLine("Konsulent ikke fundet.");
@@ -2700,7 +2699,7 @@ public class Menu
             }
 
             // Hent først konsulentens områder
-            var områder = SqlConnect.DatabaseHelper.ReadAllOmråder()
+            var områder = Område.DatabaseHelper.ReadAllOmråder()
                 .Where(o => o.KonsulentId == konsulentId)
                 .ToList();
 
@@ -2711,10 +2710,10 @@ public class Menu
             else
             {
                 // Hent sommerhuse i konsulentens områder
-                var sommerhuse = new List<SqlConnect.Sommerhus>();
+                var sommerhuse = new List<Sommerhus>();
                 foreach (var område in områder)
                 {
-                    var områdeSommerhuse = SqlConnect.DatabaseHelper.ReadAllSommerhuse()
+                    var områdeSommerhuse = Sommerhus.DatabaseHelper.ReadAllSommerhuse()
                         .Where(s => s.OmrådeId == område.GetOmrådeId())
                         .ToList();
                     sommerhuse.AddRange(områdeSommerhuse);
@@ -2744,13 +2743,14 @@ public class Menu
         Console.ReadKey();
     }
 
-    private void VisKonsulentDetaljer(SqlConnect.Konsulent konsulent)
+    private void VisKonsulentDetaljer(Konsulent konsulent)
     {
         Console.WriteLine($"Konsulent ID: {konsulent.GetKonsulentId()}");
         Console.WriteLine($"Navn: {konsulent.Navn}");
         Console.WriteLine($"Email: {konsulent.Email}");
         Console.WriteLine($"Telefon: {konsulent.Telefon}");
         Console.WriteLine($"Adresse: {konsulent.Adresse}");
+        Console.WriteLine($"Type: {konsulent.Type}");
     }
     #endregion
 
