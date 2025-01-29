@@ -14,8 +14,6 @@ public class Reservation {
     public int KundeId { get; set; }
     public DateTime StartDato { get; set; }
     public DateTime SlutDato { get; set; }
-
-    // TODO: Spørg hvorfor Sommerhus og Kunder er nødvendige
     
     public Sommerhus Sommerhus { get; set; }
     public Kunde Kunde { get; set; }
