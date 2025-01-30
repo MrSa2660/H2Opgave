@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SqlConnect")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7c4fe5f8c245372b599525183822ceabd7621c1c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4e15665658ef0c74badacfd4cd8e44787a516145")]
 [assembly: System.Reflection.AssemblyProductAttribute("SqlConnect")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SqlConnect")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

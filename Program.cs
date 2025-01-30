@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 /// </summary>
 class Program
 {
+    public static string connectionString = "Data Source=localhost;Integrated Security=True;Persist Security Info=False;Pooling=False;Multiple Active Result Sets=True;Encrypt=True;Trust Server Certificate=True;Command Timeout=0";
     /// <summary>
     /// Hovedmetoden der starter applikationen.
     /// Initialiserer menusystemet og håndterer overordnede fejl.

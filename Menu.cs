@@ -6,6 +6,7 @@ using System.Globalization;
 
 public class Menu
 {
+    
     private const int ITEMS_PER_PAGE = 15;
 
     #region Hovedmenuer
