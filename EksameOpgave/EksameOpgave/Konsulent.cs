@@ -72,10 +72,10 @@ public class Konsulent {
                             while (reader.Read()) {
                                 Konsulent k = new Konsulent();
                                 k.SetKonsulentId(reader.GetInt32(0));
-                                k.Navn = reader.GetString(1);
-                                k.Email = reader.GetString(2);
-                                k.Telefon = reader.GetString(3);
-                                k.Adresse = reader.GetString(4);
+                                k.Navn = reader.GetString(1).TrimEnd();
+                                k.Email = reader.GetString(2).TrimEnd();
+                                k.Telefon = reader.GetString(3).TrimEnd();
+                                k.Adresse = reader.GetString(4).TrimEnd();
 
                                 // Hent evt. Områder (ReadAllOmråder) => filtrer på KonsulentId = k.GetKonsulentId()
                                 // k.AnsvarligForOmråder = LoadOmråderForKonsulent(k.GetKonsulentId());
@@ -113,10 +113,10 @@ public class Konsulent {
                             if (reader.Read()) {
                                 k = new Konsulent();
                                 k.SetKonsulentId(reader.GetInt32(0));
-                                k.Navn = reader.GetString(1);
-                                k.Email = reader.GetString(2);
-                                k.Telefon = reader.GetString(3);
-                                k.Adresse = reader.GetString(4);
+                                k.Navn = reader.GetString(1).TrimEnd();
+                                k.Email = reader.GetString(2).TrimEnd();
+                                k.Telefon = reader.GetString(3).TrimEnd();
+                                k.Adresse = reader.GetString(4).TrimEnd();
 
                                 // k.AnsvarligForOmråder = LoadOmråderForKonsulent(k.GetKonsulentId());
                             }

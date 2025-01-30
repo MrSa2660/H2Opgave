@@ -123,7 +123,7 @@ public class Område {
                             while (reader.Read()) {
                                 Område o = new Område();
                                 o.SetOmrådeId(reader.GetInt32(0));
-                                o.Navn = reader.GetString(1);
+                                o.Navn = reader.GetString(1).TrimEnd();
                                 o.KonsulentId = reader.GetInt32(2);
 
                                 // Hent evt. sommerhuse med en separat SELECT, fx:
@@ -159,7 +159,7 @@ public class Område {
                             if (reader.Read()) {
                                 o = new Område();
                                 o.SetOmrådeId(reader.GetInt32(0));
-                                o.Navn = reader.GetString(1);
+                                o.Navn = reader.GetString(1).TrimEnd();
                                 o.KonsulentId = reader.GetInt32(2);
 
                                 // Hent evt. sommerhuse

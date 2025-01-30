@@ -134,8 +134,8 @@ public class SæsonKategori {
                         while (reader.Read()) {
                             SæsonKategori sk = new SæsonKategori();
                             sk.KategoriID = reader.GetInt32(0);
-                            sk.Navn = reader.GetString(1);
-                            sk.Uger = reader.GetString(2);
+                            sk.Navn = reader.GetString(1).TrimEnd();
+                            sk.Uger = reader.GetString(2).TrimEnd();
                             sk.Pris = reader.GetInt32(3);
                             liste.Add(sk);
                         }
@@ -173,8 +173,8 @@ public class SæsonKategori {
                         if (reader.Read()) {
                             sk = new SæsonKategori();
                             sk.KategoriID = reader.GetInt32(0);
-                            sk.Navn = reader.GetString(1);
-                            sk.Uger = reader.GetString(2);
+                            sk.Navn = reader.GetString(1).TrimEnd();
+                            sk.Uger = reader.GetString(2).TrimEnd();
                             sk.Pris = reader.GetInt32(3);
                         }
                     }

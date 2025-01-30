@@ -168,7 +168,7 @@ public class Sommerhus {
                         while (reader.Read()) {
                             Sommerhus s = new Sommerhus();
                             s.SommerhusId = reader.GetInt32(0);
-                            s.Adresse = reader.GetString(1);
+                            s.Adresse = reader.GetString(1).TrimEnd();
                             s.BasePris = reader.GetInt32(2);
                             s.EjerId = reader.GetInt32(3);
                             s.OmrådeId = reader.GetInt32(4);
@@ -215,7 +215,7 @@ public class Sommerhus {
                         if (reader.Read()) {
                             s = new Sommerhus();
                             s.SommerhusId = reader.GetInt32(0);
-                            s.Adresse = reader.GetString(1);
+                            s.Adresse = reader.GetString(1).TrimEnd();
                             s.BasePris = reader.GetInt32(2);
                             s.EjerId = reader.GetInt32(3);
                             s.OmrådeId = reader.GetInt32(4);

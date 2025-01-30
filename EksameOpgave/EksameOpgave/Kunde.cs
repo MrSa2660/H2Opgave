@@ -79,9 +79,9 @@ public class Kunde {
                             while (reader.Read()) {
                                 Kunde r = new Kunde();
                                 r.SetKundeId(reader.GetInt32(0));
-                                r.Email = reader.GetString(1);
-                                r.Tlfnr = reader.GetString(2);
-                                r.Adresse = reader.GetString(3);
+                                r.Email = reader.GetString(1).TrimEnd();
+                                r.Tlfnr = reader.GetString(2).TrimEnd();
+                                r.Adresse = reader.GetString(3).TrimEnd();
 
                                 liste.Add(r);
                             }
@@ -121,9 +121,9 @@ public class Kunde {
                         if (reader.Read()) {
                             r = new Kunde();
                             r.SetKundeId(reader.GetInt32(0));
-                            r.Email = reader.GetString(1);
-                            r.Tlfnr = reader.GetString(2);
-                            r.Adresse = reader.GetString(3);
+                            r.Email = reader.GetString(1).TrimEnd();
+                            r.Tlfnr = reader.GetString(2).TrimEnd();
+                            r.Adresse = reader.GetString(3).TrimEnd();
                         }
                     }
                 }

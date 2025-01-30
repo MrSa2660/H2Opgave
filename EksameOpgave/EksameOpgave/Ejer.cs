@@ -85,10 +85,10 @@ public class Ejer
                         while (reader.Read()) {
                             Ejer temp = new Ejer();
                             temp.SetEjerId(reader.GetInt32(0));
-                            temp.Navn = reader.GetString(1);
-                            temp.Email = reader.GetString(2);
-                            temp.Telefon = reader.GetString(3);
-                            temp.Adresse = reader.GetString(4);
+                            temp.Navn = reader.GetString(1).TrimEnd();
+                            temp.Email = reader.GetString(2).TrimEnd();
+                            temp.Telefon = reader.GetString(3).TrimEnd();
+                            temp.Adresse = reader.GetString(4).TrimEnd();
                             temp.KontraktStartDato = reader.GetDateTime(5);
                             temp.KontraktSlutDato = reader.GetDateTime(6);
 
@@ -126,10 +126,10 @@ public class Ejer
                         if (reader.Read()) {
                             ejer = new Ejer();
                             ejer.SetEjerId(reader.GetInt32(0));
-                            ejer.Navn = reader.GetString(1);
-                            ejer.Email = reader.GetString(2);
-                            ejer.Telefon = reader.GetString(3);
-                            ejer.Adresse = reader.GetString(4);
+                            ejer.Navn = reader.GetString(1).TrimEnd();
+                            ejer.Email = reader.GetString(2).TrimEnd();
+                            ejer.Telefon = reader.GetString(3).TrimEnd();
+                            ejer.Adresse = reader.GetString(4).TrimEnd();
                             ejer.KontraktStartDato = reader.GetDateTime(5);
                             ejer.KontraktSlutDato = reader.GetDateTime(6);
                         }
