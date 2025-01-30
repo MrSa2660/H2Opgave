@@ -1,0 +1,190 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\salih\\Desktop\\Opg\\EksameOpgave\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5BA21297-2FCB-4EC3-BE0B-B3E665761B4F}|EksameOpgave\\EksameOpgave.csproj|c:\\users\\salih\\desktop\\opg\\eksameopgave\\eksameopgave\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BA21297-2FCB-4EC3-BE0B-B3E665761B4F}|EksameOpgave\\EksameOpgave.csproj|solutionrelative:eksameopgave\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BA21297-2FCB-4EC3-BE0B-B3E665761B4F}|EksameOpgave\\EksameOpgave.csproj|c:\\users\\salih\\desktop\\opg\\eksameopgave\\eksameopgave\\konsulent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BA21297-2FCB-4EC3-BE0B-B3E665761B4F}|EksameOpgave\\EksameOpgave.csproj|solutionrelative:eksameopgave\\konsulent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BA21297-2FCB-4EC3-BE0B-B3E665761B4F}|EksameOpgave\\EksameOpgave.csproj|c:\\users\\salih\\desktop\\opg\\eksameopgave\\eksameopgave\\kunde.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BA21297-2FCB-4EC3-BE0B-B3E665761B4F}|EksameOpgave\\EksameOpgave.csproj|solutionrelative:eksameopgave\\kunde.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BA21297-2FCB-4EC3-BE0B-B3E665761B4F}|EksameOpgave\\EksameOpgave.csproj|c:\\users\\salih\\desktop\\opg\\eksameopgave\\eksameopgave\\opsynsmand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BA21297-2FCB-4EC3-BE0B-B3E665761B4F}|EksameOpgave\\EksameOpgave.csproj|solutionrelative:eksameopgave\\opsynsmand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BA21297-2FCB-4EC3-BE0B-B3E665761B4F}|EksameOpgave\\EksameOpgave.csproj|c:\\users\\salih\\desktop\\opg\\eksameopgave\\eksameopgave\\omr\u00E5de.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BA21297-2FCB-4EC3-BE0B-B3E665761B4F}|EksameOpgave\\EksameOpgave.csproj|solutionrelative:eksameopgave\\omr\u00E5de.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BA21297-2FCB-4EC3-BE0B-B3E665761B4F}|EksameOpgave\\EksameOpgave.csproj|c:\\users\\salih\\desktop\\opg\\eksameopgave\\eksameopgave\\s\u00E6sonkategori.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BA21297-2FCB-4EC3-BE0B-B3E665761B4F}|EksameOpgave\\EksameOpgave.csproj|solutionrelative:eksameopgave\\s\u00E6sonkategori.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BA21297-2FCB-4EC3-BE0B-B3E665761B4F}|EksameOpgave\\EksameOpgave.csproj|c:\\users\\salih\\desktop\\opg\\eksameopgave\\eksameopgave\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BA21297-2FCB-4EC3-BE0B-B3E665761B4F}|EksameOpgave\\EksameOpgave.csproj|solutionrelative:eksameopgave\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BA21297-2FCB-4EC3-BE0B-B3E665761B4F}|EksameOpgave\\EksameOpgave.csproj|c:\\users\\salih\\desktop\\opg\\eksameopgave\\eksameopgave\\sommerhus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BA21297-2FCB-4EC3-BE0B-B3E665761B4F}|EksameOpgave\\EksameOpgave.csproj|solutionrelative:eksameopgave\\sommerhus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BA21297-2FCB-4EC3-BE0B-B3E665761B4F}|EksameOpgave\\EksameOpgave.csproj|c:\\users\\salih\\desktop\\opg\\eksameopgave\\eksameopgave\\ejer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BA21297-2FCB-4EC3-BE0B-B3E665761B4F}|EksameOpgave\\EksameOpgave.csproj|solutionrelative:eksameopgave\\ejer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BA21297-2FCB-4EC3-BE0B-B3E665761B4F}|EksameOpgave\\EksameOpgave.csproj|c:\\users\\salih\\desktop\\opg\\eksameopgave\\eksameopgave\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BA21297-2FCB-4EC3-BE0B-B3E665761B4F}|EksameOpgave\\EksameOpgave.csproj|solutionrelative:eksameopgave\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Kunde.cs",
+              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Opg\\EksameOpgave\\EksameOpgave\\Kunde.cs",
+              "RelativeDocumentMoniker": "EksameOpgave\\Kunde.cs",
+              "ToolTip": "C:\\Users\\salih\\Desktop\\Opg\\EksameOpgave\\EksameOpgave\\Kunde.cs",
+              "RelativeToolTip": "EksameOpgave\\Kunde.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAcwDQAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T20:14:12.244Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "S\u00E6sonKategori.cs",
+              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Opg\\EksameOpgave\\EksameOpgave\\S\u00E6sonKategori.cs",
+              "RelativeDocumentMoniker": "EksameOpgave\\S\u00E6sonKategori.cs",
+              "ToolTip": "C:\\Users\\salih\\Desktop\\Opg\\EksameOpgave\\EksameOpgave\\S\u00E6sonKategori.cs",
+              "RelativeToolTip": "EksameOpgave\\S\u00E6sonKategori.cs",
+              "ViewState": "AQIAANAAAAAAAAAAAAAwwMwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T20:19:35.753Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Sommerhus.cs",
+              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Opg\\EksameOpgave\\EksameOpgave\\Sommerhus.cs",
+              "RelativeDocumentMoniker": "EksameOpgave\\Sommerhus.cs",
+              "ToolTip": "C:\\Users\\salih\\Desktop\\Opg\\EksameOpgave\\EksameOpgave\\Sommerhus.cs",
+              "RelativeToolTip": "EksameOpgave\\Sommerhus.cs",
+              "ViewState": "AQIAAIUAAAAAAAAAAAAIwIUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T20:15:58.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Reservation.cs",
+              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Opg\\EksameOpgave\\EksameOpgave\\Reservation.cs",
+              "RelativeDocumentMoniker": "EksameOpgave\\Reservation.cs",
+              "ToolTip": "C:\\Users\\salih\\Desktop\\Opg\\EksameOpgave\\EksameOpgave\\Reservation.cs",
+              "RelativeToolTip": "EksameOpgave\\Reservation.cs",
+              "ViewState": "AQIAANQAAAAAAAAAAIAwwMcAAABIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T20:14:30.777Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Opsynsmand.cs",
+              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Opg\\EksameOpgave\\EksameOpgave\\Opsynsmand.cs",
+              "RelativeDocumentMoniker": "EksameOpgave\\Opsynsmand.cs",
+              "ToolTip": "C:\\Users\\salih\\Desktop\\Opg\\EksameOpgave\\EksameOpgave\\Opsynsmand.cs",
+              "RelativeToolTip": "EksameOpgave\\Opsynsmand.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAmwDIAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T20:14:27.04Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Omr\u00E5de.cs",
+              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Opg\\EksameOpgave\\EksameOpgave\\Omr\u00E5de.cs",
+              "RelativeDocumentMoniker": "EksameOpgave\\Omr\u00E5de.cs",
+              "ToolTip": "C:\\Users\\salih\\Desktop\\Opg\\EksameOpgave\\EksameOpgave\\Omr\u00E5de.cs",
+              "RelativeToolTip": "EksameOpgave\\Omr\u00E5de.cs",
+              "ViewState": "AQIAAH4AAAAAAAAAAAApwJcAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T20:14:24.941Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Menu.cs",
+              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Opg\\EksameOpgave\\EksameOpgave\\Menu.cs",
+              "RelativeDocumentMoniker": "EksameOpgave\\Menu.cs",
+              "ToolTip": "C:\\Users\\salih\\Desktop\\Opg\\EksameOpgave\\EksameOpgave\\Menu.cs",
+              "RelativeToolTip": "EksameOpgave\\Menu.cs",
+              "ViewState": "AQIAAIgJAAAAAAAAAAAQwJEJAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T20:14:14.973Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Konsulent.cs",
+              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Opg\\EksameOpgave\\EksameOpgave\\Konsulent.cs",
+              "RelativeDocumentMoniker": "EksameOpgave\\Konsulent.cs",
+              "ToolTip": "C:\\Users\\salih\\Desktop\\Opg\\EksameOpgave\\EksameOpgave\\Konsulent.cs",
+              "RelativeToolTip": "EksameOpgave\\Konsulent.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAA8wCsAAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T20:13:48.518Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "program.cs",
+              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Opg\\EksameOpgave\\EksameOpgave\\program.cs",
+              "RelativeDocumentMoniker": "EksameOpgave\\program.cs",
+              "ToolTip": "C:\\Users\\salih\\Desktop\\Opg\\EksameOpgave\\EksameOpgave\\program.cs",
+              "RelativeToolTip": "EksameOpgave\\program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAABnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T20:11:43.784Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Ejer.cs",
+              "DocumentMoniker": "C:\\Users\\salih\\Desktop\\Opg\\EksameOpgave\\EksameOpgave\\Ejer.cs",
+              "RelativeDocumentMoniker": "EksameOpgave\\Ejer.cs",
+              "ToolTip": "C:\\Users\\salih\\Desktop\\Opg\\EksameOpgave\\EksameOpgave\\Ejer.cs",
+              "RelativeToolTip": "EksameOpgave\\Ejer.cs",
+              "ViewState": "AQIAAI8AAAAAAAAAAAAowKQAAABIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T20:11:29.249Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
